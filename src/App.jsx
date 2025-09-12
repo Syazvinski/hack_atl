@@ -16,29 +16,73 @@ function CalendarIcon({ label = 'Day' }) {
   )
 }
 
+// Subtle inline icons (NASA-themed)
+const Icon = ({ children, className = 'w-4 h-4 text-[#0B3D91]' }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    {children}
+  </svg>
+)
+
+const PinIcon = (props) => (
+  <Icon {...props}>
+    <path d="M12 21s-6-5.1-6-9a6 6 0 1 1 12 0c0 3.9-6 9-6 9Z" />
+    <circle cx="12" cy="12" r="2.5" />
+  </Icon>
+)
+
+const ClockIcon = (props) => (
+  <Icon {...props}>
+    <circle cx="12" cy="12" r="8" />
+    <path d="M12 8v5l3 2" />
+  </Icon>
+)
+
+const TrophyIcon = (props) => (
+  <Icon {...props}>
+    <path d="M8 4h8v2a4 4 0 0 1-8 0V4Z" />
+    <path d="M8 4H5a3 3 0 0 0 3 3" />
+    <path d="M16 4h3a3 3 0 0 1-3 3" />
+    <path d="M12 14v4" />
+    <path d="M9 21h6" />
+  </Icon>
+)
+
+const BulbIcon = (props) => (
+  <Icon {...props}>
+    <path d="M9 18h6" />
+    <path d="M9.5 14a5 5 0 1 1 5 0c-.8.6-1.5 1.2-1.7 2H11.2c-.2-.8-.9-1.4-1.7-2Z" />
+  </Icon>
+)
+
+const RocketIcon = (props) => (
+  <Icon {...props}>
+    <path d="M5 19c1-3 4-5 7-5s6 2 7 5" />
+    <path d="M12 4l2 4-4 2 2-6Z" />
+  </Icon>
+)
 import { EVENT } from './data/event'
 
 function App() {
   return (
     <div className="min-h-screen w-full bg-white">
       {/* HERO */}
-      <section className="relative overflow-hidden min-h-[85vh] md:min-h-[88vh]">
+      <section className="relative overflow-hidden min-h-[80vh] sm:min-h-[85vh] md:min-h-[88vh]">
         <div className="absolute inset-0 bg-gradient-to-tr from-[#001A3A] via-[#0B3D91] to-[#0B3D91]" />
 
         {/* Left offset full-height dark circle */}
         <div
-          className="pointer-events-none absolute left-0 top-1/2 -translate-x-[35%] -translate-y-1/2 w-[92vh] h-[92vh] bg-[#001A3A] rounded-full shadow-2xl"
+          className="pointer-events-none absolute left-0 top-1/2 -translate-x-[35%] -translate-y-1/2 w-[110vw] h-[110vw] sm:w-[92vh] sm:h-[92vh] bg-[#001A3A] rounded-full shadow-2xl"
           aria-hidden
         />
 
         {/* Top-right circular group photo matching full-height footprint */}
-        <div className="pointer-events-none absolute top-1/2 -translate-y-1/2 right-4 sm:right-8 md:right-16 w-[70vh] h-[70vh] md:w-[80vh] md:h-[80vh] rounded-full overflow-hidden border-[10px] border-white/40 shadow-2xl">
+        <div className="pointer-events-none absolute top-1/2 -translate-y-1/2 right-2 sm:right-8 md:right-16 w-[80vw] h-[80vw] sm:w-[65vh] sm:h-[65vh] md:w-[80vh] md:h-[80vh] rounded-full overflow-hidden border-[10px] border-white/40 shadow-2xl">
           <img src="https://www.emorybusiness.com/wp-content/uploads/2021/11/HACKAtl-team-scaled.jpg" alt="HackATL team group" className="w-full h-full object-cover" />
         </div>
 
         <div className="relative max-w-6xl mx-auto px-6 sm:px-8 py-12 md:py-20 pt-24 md:pt-32 lg:pt-40">
           {/* Logos row positioned inside the left circle */}
-          <div className="relative z-10 mt-10 md:mt-14 lg:mt-16 w-[38vh] sm:w-[42vh] lg:w-[46vh] max-w-[680px] -ml-4 sm:-ml-10 lg:-ml-24 xl:-ml-40">
+          <div className="relative z-10 mt-10 md:mt-14 lg:mt-16 w-[76vw] sm:w-[42vh] lg:w-[46vh] max-w-[680px] -ml-2 sm:-ml-10 lg:-ml-24 xl:-ml-40">
             <div className="flex items-center gap-4 md:gap-6 lg:gap-8">
               <img
                 src="https://www.eevm.org/logos/eevm_partial-h128.webp"
@@ -57,17 +101,17 @@ function App() {
           {/* Headline and CTA sitting over circle */}
           <div className="mt-12 md:mt-16 lg:mt-24 relative z-10">
             {/* Constrain the text block to the visible right-half of the circle */}
-            <div className="w-[38vh] sm:w-[42vh] lg:w-[46vh] max-w-[680px] -ml-4 sm:-ml-10 lg:-ml-24 xl:-ml-40">
+            <div className="w-[76vw] sm:w-[42vh] lg:w-[46vh] max-w-[680px] -ml-2 sm:-ml-10 lg:-ml-24 xl:-ml-40">
               <h1 className="text-white text-[46px] sm:text-[68px] md:text-[92px] leading-[0.95] font-extrabold tracking-tight drop-shadow">
                 HackATL
                 <br />
                 <span className="block">2025</span>
               </h1>
-              <div className="mt-8 inline-flex items-center gap-4">
-                <a href="#" className="inline-flex items-center rounded-full bg-[#FC3D21] hover:bg-[#ff5a3f] text-white font-semibold px-8 py-3 shadow-lg transition-colors">
+              <div className="mt-6 sm:mt-8 inline-flex flex-wrap items-center gap-3 sm:gap-4">
+                <a href="#" className="inline-flex items-center rounded-full bg-[#FC3D21] hover:bg-[#ff5a3f] text-white font-semibold whitespace-nowrap px-5 sm:px-7 md:px-8 py-3 text-sm sm:text-base shadow-lg transition-colors">
                   SIGN UP NOW
                 </a>
-                <span className="text-white/90 tracking-wide text-sm">
+                <span className="text-white/90 tracking-wide text-xs sm:text-sm">
                   {EVENT.dates} • {EVENT.locationShort}
                 </span>
               </div>
@@ -88,9 +132,9 @@ function App() {
                 HackATL is Emory University’s student-run business hackathon where hundreds of students from across the Southeast come together to turn ideas into real, pitch-ready startups in just 48 hours. It’s hosted at Goizueta Business School and features workshops, mentoring, and a final pitch to a panel of investors and industry leaders, with a prize pool of $13K+.
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
-                <span className="inline-flex items-center rounded-full bg-[#e6efff] text-[#0B3D91] px-3 py-1 text-sm font-medium ring-1 ring-[#b9ccff]">Goizueta Business School</span>
-                <span className="inline-flex items-center rounded-full bg-[#ffe9e5] text-[#C62E15] px-3 py-1 text-sm font-medium ring-1 ring-[#ffd3cb]">48 Hours</span>
-                <span className="inline-flex items-center rounded-full bg-[#ffe9e5] text-[#C62E15] px-3 py-1 text-sm font-medium ring-1 ring-[#ffd3cb]">$13K+ Prizes</span>
+                <span className="inline-flex items-center gap-2 rounded-full bg-[#e6efff] text-[#0B3D91] px-3 py-1 text-sm font-medium ring-1 ring-[#b9ccff]"><PinIcon /> Goizueta Business School</span>
+                <span className="inline-flex items-center gap-2 rounded-full bg-[#ffe9e5] text-[#C62E15] px-3 py-1 text-sm font-medium ring-1 ring-[#ffd3cb]"><ClockIcon className="w-4 h-4 text-[#C62E15]" /> 48 Hours</span>
+                <span className="inline-flex items-center gap-2 rounded-full bg-[#ffe9e5] text-[#C62E15] px-3 py-1 text-sm font-medium ring-1 ring-[#ffd3cb]"><TrophyIcon className="w-4 h-4 text-[#C62E15]" /> $13K+ Prizes</span>
               </div>
             </div>
             <div className="md:pl-6">
@@ -171,10 +215,10 @@ function App() {
                 Build a venture from zero to pitch: define a customer problem, prototype a solution, craft a business model, and present to judges. Teams are intentionally interdisciplinary—hackers (builders), hustlers (business), and hipsters (design/UX)—so non-coders and coders alike add value.
               </p>
               <ul className="mt-6 space-y-3 text-indigo-900/90">
-                <li>• Problem discovery and validation</li>
-                <li>• Prototype and demo</li>
-                <li>• Business model and go‑to‑market</li>
-                <li>• Pitch to investors and experts</li>
+                <li className="flex items-center gap-3"><BulbIcon /> <span>Problem discovery and validation</span></li>
+                <li className="flex items-center gap-3"><RocketIcon /> <span>Prototype and demo</span></li>
+                <li className="flex items-center gap-3"><Icon><path d="M3 12h18" /><path d="M7 8h10" /><path d="M9 16h6" /></Icon> <span>Business model and go‑to‑market</span></li>
+                <li className="flex items-center gap-3"><TrophyIcon /> <span>Pitch to investors and experts</span></li>
               </ul>
             </div>
             <div>
@@ -211,9 +255,9 @@ function App() {
                 A diverse judging panel—investors, entrepreneurs, professors, and civic leaders—evaluates teams on problem fit, product, and go‑to‑market.
               </p>
               <ul className="mt-5 space-y-2 text-indigo-900/90">
-                <li>• Category and overall awards</li>
-                <li>• Real feedback from experts</li>
-                <li>• Access to Emory’s venture ecosystem</li>
+                <li className="flex items-center gap-2"><TrophyIcon className="w-4 h-4" /> <span>Category and overall awards</span></li>
+                <li className="flex items-center gap-2"><Icon><path d="M5 12l4 4L19 6" /></Icon> <span>Real feedback from experts</span></li>
+                <li className="flex items-center gap-2"><Icon><circle cx="12" cy="12" r="9" /><path d="M12 7v10" /><path d="M7 12h10" /></Icon> <span>Access to Emory’s venture ecosystem</span></li>
               </ul>
             </div>
             <div className="bg-[#0B3D91] text-white rounded-2xl p-8 shadow-card flex flex-col justify-center">
@@ -260,8 +304,9 @@ function App() {
               <p className="mt-4 text-indigo-900/90 leading-relaxed">
                 HackATL typically runs over a weekend in October during the InnovATL season, at Goizueta Business School, 1300 Clifton Rd NE, Atlanta, GA 30322. Exact dates vary—check the current registration page.
               </p>
-              <div className="mt-4 text-indigo-900/80">
-                Goizueta Business School, Emory University
+              <div className="mt-4 text-indigo-900/80 flex items-center gap-2">
+                <PinIcon />
+                <span>Goizueta Business School, Emory University</span>
               </div>
             </div>
             <div>
@@ -360,8 +405,8 @@ function App() {
                 <h4 className="text-xl font-bold text-indigo-900">{c.t}</h4>
                 <p className="mt-2 text-indigo-900/80 leading-relaxed">{c.d}</p>
                 <div className="mt-4">
-                  <button className="inline-flex items-center rounded-full bg-[#FC3D21] hover:bg-[#ff5a3f] text-white font-semibold px-5 py-2 text-sm shadow">
-                    Learn more
+                  <button className="inline-flex items-center gap-2 rounded-full bg-[#FC3D21] hover:bg-[#ff5a3f] text-white font-semibold px-5 py-2 text-sm shadow">
+                    <RocketIcon className="w-4 h-4 text-white" /> Learn more
                   </button>
                 </div>
               </div>
