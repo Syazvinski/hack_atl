@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+/* Global Resets */
+html, body, #root { height: 100%; }
+body { @apply antialiased text-slate-900; }
+
+/* Simple utility for image placeholders */
+.img-placeholder {
+  @apply bg-slate-200 text-slate-500 flex items-center justify-center font-medium;
+}
