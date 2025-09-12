@@ -4,26 +4,36 @@ function Placeholder({ className = '', children = 'Image Placeholder' }) {
   )
 }
 
+function CalendarIcon({ label = 'Day' }) {
+  const short = label.slice(0, 3)
+  return (
+    <div className="w-16 h-16 rounded-lg bg-white ring-1 ring-[#0B3D91]/30 shadow overflow-hidden flex flex-col">
+      <div className="h-4 bg-[#0B3D91]" />
+      <div className="flex-1 flex items-center justify-center text-[#0B3D91] font-extrabold text-sm tracking-wide">
+        {short}
+      </div>
+    </div>
+  )
+}
+
+import { EVENT } from './data/event'
+
 function App() {
   return (
     <div className="min-h-screen w-full bg-white">
       {/* HERO */}
-      <section className="relative overflow-hidden min-h-screen">
-        <div className="absolute inset-0 bg-gradient-to-tr from-indigo-700 via-purple-600 to-fuchsia-400" />
+      <section className="relative overflow-hidden min-h-[85vh] md:min-h-[88vh]">
+        <div className="absolute inset-0 bg-gradient-to-tr from-[#001A3A] via-[#0B3D91] to-[#0B3D91]" />
 
         {/* Left offset full-height dark circle */}
         <div
-          className="pointer-events-none absolute left-0 top-1/2 -translate-x-[35%] -translate-y-1/2 w-[100vh] h-[100vh] bg-[#0e1230] rounded-full shadow-2xl"
+          className="pointer-events-none absolute left-0 top-1/2 -translate-x-[35%] -translate-y-1/2 w-[92vh] h-[92vh] bg-[#001A3A] rounded-full shadow-2xl"
           aria-hidden
         />
 
         {/* Top-right circular group photo matching full-height footprint */}
-        <div className="pointer-events-none absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2 w-[90vh] h-[90vh] md:w-[100vh] md:h-[100vh] rounded-full overflow-hidden border-[10px] border-white/40 shadow-2xl">
-          <img
-            src="https://www.emorybusiness.com/wp-content/uploads/2021/11/HACKAtl-team-scaled.jpg"
-            alt="HackATL team group"
-            className="w-full h-full object-cover"
-          />
+        <div className="pointer-events-none absolute top-1/2 -translate-y-1/2 right-4 sm:right-8 md:right-16 w-[70vh] h-[70vh] md:w-[80vh] md:h-[80vh] rounded-full overflow-hidden border-[10px] border-white/40 shadow-2xl">
+          <img src="https://www.emorybusiness.com/wp-content/uploads/2021/11/HACKAtl-team-scaled.jpg" alt="HackATL team group" className="w-full h-full object-cover" />
         </div>
 
         <div className="relative max-w-6xl mx-auto px-6 sm:px-8 py-12 md:py-20 pt-24 md:pt-32 lg:pt-40">
@@ -36,11 +46,11 @@ function App() {
                 className="h-10 md:h-14 lg:h-20 w-auto"
               />
               <span className="text-white/80 text-2xl md:text-3xl">×</span>
-              <img
-                src="https://www.eevm.org/hack-logos/hack_logo_2025-h160.webp"
-                alt="HackATL 2025 logo"
-                className="h-12 md:h-16 lg:h-24 w-auto"
-              />
+            <img
+              src="/images/hackatl/hackatl_logo_whitefill.png"
+              alt="HackATL 2025 logo"
+              className="h-12 md:h-16 lg:h-24 w-auto"
+            />
             </div>
           </div>
 
@@ -54,121 +64,308 @@ function App() {
                 <span className="block">2025</span>
               </h1>
               <div className="mt-8 inline-flex items-center gap-4">
-                <a href="#" className="inline-flex items-center rounded-full bg-fuchsia-500 hover:bg-fuchsia-400 text-white font-semibold px-8 py-3 shadow-lg transition-colors">
+                <a href="#" className="inline-flex items-center rounded-full bg-[#FC3D21] hover:bg-[#ff5a3f] text-white font-semibold px-8 py-3 shadow-lg transition-colors">
                   SIGN UP NOW
                 </a>
-                <span className="text-white/80 uppercase tracking-wider text-xs">Dates & Location go here</span>
+                <span className="text-white/90 tracking-wide text-sm">
+                  {EVENT.dates} • {EVENT.locationShort}
+                </span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ABOUT */}
-      <section className="relative bg-gradient-to-b from-[#d9c9f0] via-[#e8dbf7] to-[#e8dbf7]">
-        <div className="max-w-6xl mx-auto px-6 sm:px-8 py-14 md:py-20">
-          <div className="grid md:grid-cols-2 gap-10 items-start">
+      {/* OVERVIEW */}
+      <section className="relative bg-gradient-to-b from-[#e6efff] via-[#f1f6ff] to-white">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 py-16 md:py-24">
+          <div className="grid md:grid-cols-2 gap-12 items-start">
             <div>
-              <h2 className="text-4xl md:text-[44px] font-extrabold text-indigo-900 tracking-tight">About <span className="text-indigo-700">HackATL</span></h2>
-              <p className="mt-5 text-indigo-900/90 leading-relaxed">
-                HackATL is the most prominent business hackathon in the southeast, attracting hundreds of students from dozens of top universities to compete for $13k+. Participants are given 48 hours to develop a prototype and pitch to judges, angel investors, and venture capitalists. After HackATL, participants are given access to further resources and funding to take ideas to life. This year's hackathon theme is zero to one— We can't wait to see what you build.
+              <h2 className="text-4xl md:text-[44px] font-extrabold text-indigo-900 tracking-tight">
+                HackATL @ Emory — Build a Startup in 48 Hours
+              </h2>
+              <p className="mt-5 text-indigo-950/90 leading-relaxed">
+                HackATL is Emory University’s student-run business hackathon where hundreds of students from across the Southeast come together to turn ideas into real, pitch-ready startups in just 48 hours. It’s hosted at Goizueta Business School and features workshops, mentoring, and a final pitch to a panel of investors and industry leaders, with a prize pool of $13K+.
               </p>
-              {/* removed inline logo per request */}
-            </div>
-
-            <div className="flex flex-col items-center md:items-end gap-6">
-              <div className="w-full max-w-md">
-                <div className="rounded-xl overflow-hidden shadow-xl ring-1 ring-indigo-600/30">
-                  <img
-                    src="https://www.eevm.org/homepage/eevm_group.webp"
-                    alt="EEVM group"
-                    className="w-full h-auto object-cover"
-                  />
-                </div>
-                <div className="flex items-center justify-center gap-2 mt-4">
-                  <span className="h-2 w-6 rounded-full bg-indigo-500" />
-                  <span className="h-2 w-2 rounded-full bg-indigo-300" />
-                  <span className="h-2 w-2 rounded-full bg-indigo-300" />
-                  <span className="h-2 w-2 rounded-full bg-indigo-300" />
-                </div>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <span className="inline-flex items-center rounded-full bg-[#e6efff] text-[#0B3D91] px-3 py-1 text-sm font-medium ring-1 ring-[#b9ccff]">Goizueta Business School</span>
+                <span className="inline-flex items-center rounded-full bg-[#ffe9e5] text-[#C62E15] px-3 py-1 text-sm font-medium ring-1 ring-[#ffd3cb]">48 Hours</span>
+                <span className="inline-flex items-center rounded-full bg-[#ffe9e5] text-[#C62E15] px-3 py-1 text-sm font-medium ring-1 ring-[#ffd3cb]">$13K+ Prizes</span>
               </div>
-              <div className="flex items-center gap-3 self-end">
-                <Placeholder className="h-7 w-7 rounded-full">IG</Placeholder>
-                <a href="mailto:HackATL@gmail.com" className="text-indigo-900 font-medium">HackATL@gmail.com</a>
+            </div>
+            <div className="md:pl-6">
+              <div className="rounded-2xl overflow-hidden shadow-card ring-1 ring-[#0B3D91]/10">
+                <img src="/images/hackatl/overview.jpg" alt="Overview" className="w-full h-auto object-cover" />
               </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* DIRECTORY CARDS */}
-      <section className="relative bg-gradient-to-b from-[#c7f2d0] via-[#c9e8ff] to-[#cde0ff]">
-        <div className="max-w-6xl mx-auto px-6 sm:px-8 py-16">
-          <h3 className="text-center text-5xl font-extrabold text-indigo-900">Directory</h3>
-
-          <div className="mt-12 grid md:grid-cols-3 gap-8">
+          <div className="mt-14 grid md:grid-cols-3 gap-6">
             {[
-              {
-                title: 'EEVM & History',
-                desc: 'All our upcoming events for the month of October to December',
-                cta: 'CHECK IT OUT >',
-                img: 'https://www.eevm.org/homepage/eevm_group.webp',
-              },
-              {
-                title: 'Sponsorship',
-                desc: 'Recommended courses, curated just for you!',
-                cta: 'START LEARNING >',
-                img: 'https://www.eevm.org/logos/eevm_partial-h128.webp',
-              },
-              {
-                title: 'Past Winners',
-                desc: 'Past 3-4 Years',
-                cta: 'SEE WINNERS >',
-                img: 'https://news.ua.edu/wp-content/uploads/2017/12/HackATL.jpg',
-              },
-            ].map((card, i) => (
-              <div key={i} className="bg-[#1b1570] rounded-2xl p-5 shadow-card ring-4 ring-indigo-900/40">
-                <div className="rounded-xl overflow-hidden">
-                  <img src={card.img} alt="card visual" className="w-full h-36 md:h-44 object-cover" />
-                </div>
-                <div className="mt-5">
-                  <h4 className="text-white text-xl font-extrabold">{card.title}</h4>
-                  <p className="text-indigo-100/90 mt-2 text-sm leading-relaxed">{card.desc}</p>
-                </div>
-                <div className="mt-6">
-                  <button className="text-teal-300 text-sm font-semibold tracking-wide">
-                    {card.cta.replace('>', '')} &gt;
-                  </button>
-                </div>
+              {t:'Workshops', img:'/images/hackatl/workshops.jpg'},
+              {t:'Mentoring', img:'/images/hackatl/mentoring2.jpg'},
+              {t:'Investor Panel', img:'/images/hackatl/investor.jpg'},
+            ].map((c,i)=> (
+              <div key={i} className="bg-white rounded-xl p-6 shadow-card ring-1 ring-[#0B3D91]/10">
+                <img src={c.img} alt={c.t} className="w-full h-32 object-cover rounded-lg mb-4" />
+                <p className="text-indigo-900 font-semibold">{c.t}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* SECOND ROW (SPONSORS / PHOTOS) */}
-      <section className="relative bg-gradient-to-b from-[#cde0ff] via-[#c8e6ff] to-[#bcdfff]">
-        <div className="max-w-6xl mx-auto px-6 sm:px-8 py-10 md:py-16">
-          <h3 className="text-center text-4xl md:text-5xl font-extrabold text-indigo-900">Directory</h3>
+      {/* WHAT IS HACKATL */}
+      <section className="relative bg-gradient-to-b from-white via-[#eaf2ff] to-[#eaf2ff]">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 py-16 md:py-24">
+          <h3 className="text-3xl md:text-4xl font-extrabold text-indigo-900">What is HackATL?</h3>
+          <div className="mt-6 grid md:grid-cols-3 gap-8">
+            <div className="md:col-span-2">
+              <p className="text-indigo-900/90 leading-relaxed">
+                HackATL is the region’s most prominent business hackathon—since 2013, it’s helped thousands of students build prototypes, validate business models, and pitch to judges, angels, and VCs. The event is powered by Emory Entrepreneurship & Venture Management (EEVM) and supported by Goizueta’s Center for Entrepreneurship & Innovation. Recent editions have partnered with InnovATL and the City of Atlanta.
+              </p>
+            </div>
+            <div>
+              <img src="/images/hackatl/partners.jpg" alt="Partners" className="w-full h-40 object-cover rounded-xl" />
+            </div>
+          </div>
+        </div>
+      </section>
 
-          <div className="mt-10 grid md:grid-cols-2 gap-10">
-            <div className="bg-white/60 rounded-2xl p-5 shadow-card">
-              <div className="rounded-2xl overflow-hidden">
-                <img
-                  src="https://www.eevm.org/homepage/eevm_group.webp"
-                  alt="EEVM photo"
-                  className="w-full h-auto object-cover"
-                />
+      {/* WEEKEND FLOW */}
+      <section className="relative bg-gradient-to-b from-[#eaf2ff] via-[#e6efff] to-[#eef6ff]">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 py-16 md:py-24">
+          <h3 className="text-3xl md:text-4xl font-extrabold text-indigo-900">How it Works</h3>
+          <p className="mt-3 text-indigo-900/80">Weekend flow at a glance</p>
+          <div className="mt-8 grid md:grid-cols-3 gap-6">
+            {[{
+              t:'Friday',
+              d:'Kickoff, theme reveal, team formation, ideation.'
+            },{
+              t:'Saturday',
+              d:'Heads-down building plus workshops and mentor office hours.'
+            },{
+              t:'Sunday',
+              d:'Pitch polish, semifinals, and finale on stage to judges.'
+            }].map((s,i)=> (
+              <div key={i} className="bg-white rounded-2xl p-6 shadow-card ring-1 ring-[#0B3D91]/10">
+                <div className="flex items-center gap-4">
+                  <CalendarIcon label={s.t} />
+                  <h4 className="sr-only">{s.t}</h4>
+                </div>
+                <p className="mt-4 text-indigo-900/80 leading-relaxed">{s.d}</p>
               </div>
-              <p className="mt-4 text-indigo-900 font-semibold">say sum about 13th year hack atl</p>
-              <button className="mt-2 text-teal-600 text-sm font-semibold">START LEARNING &gt;</button>
+            ))}
+          </div>
+          <p className="mt-8 text-indigo-900/80">Expect hands-on guidance, cross-campus networking, and real feedback focused on both technical and business execution.</p>
+        </div>
+      </section>
+
+      {/* WHAT YOU DO */}
+      <section className="relative bg-gradient-to-b from-[#eef5ff] via-white to-white">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 py-16 md:py-24">
+          <div className="grid md:grid-cols-2 gap-10 items-start">
+            <div>
+              <h3 className="text-3xl md:text-4xl font-extrabold text-indigo-900">What You Do</h3>
+              <p className="mt-4 text-indigo-900/90 leading-relaxed">
+                Build a venture from zero to pitch: define a customer problem, prototype a solution, craft a business model, and present to judges. Teams are intentionally interdisciplinary—hackers (builders), hustlers (business), and hipsters (design/UX)—so non-coders and coders alike add value.
+              </p>
+              <ul className="mt-6 space-y-3 text-indigo-900/90">
+                <li>• Problem discovery and validation</li>
+                <li>• Prototype and demo</li>
+                <li>• Business model and go‑to‑market</li>
+                <li>• Pitch to investors and experts</li>
+              </ul>
             </div>
-            <div className="bg-white/60 rounded-2xl p-5 shadow-card">
-              <div className="rounded-2xl overflow-hidden">
-                <Placeholder className="w-full aspect-[16/9]">Sponsor Logos</Placeholder>
+            <div>
+              <img src="/images/hackatl/teamwork.jpg" alt="Team working" className="w-full h-64 object-cover rounded-2xl" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* WHO PARTICIPATES */}
+      <section className="relative bg-gradient-to-b from-white via-[#eaf3ff] to-[#e0eeff]">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 py-16 md:py-24">
+          <div className="grid md:grid-cols-2 gap-10 items-center">
+            <div>
+              <img src="/images/hackatl/crowd.jpg" alt="Crowd" className="w-full h-72 object-cover rounded-2xl" />
+            </div>
+            <div>
+              <h3 className="text-3xl md:text-4xl font-extrabold text-indigo-900">Who Participates</h3>
+              <p className="mt-4 text-indigo-900/90 leading-relaxed">
+                Undergrads and grads from Emory and dozens of other universities across the Southeast; prior cohorts included students from pre‑med, computer science, pre‑law, and business. Beginners are welcome—the event is designed as a crash course in entrepreneurship.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* JUDGING & PRIZES */}
+      <section className="relative bg-gradient-to-b from-[#e0eeff] via-white to-[#eaf3ff]">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 py-16 md:py-24">
+          <div className="grid md:grid-cols-3 gap-8 items-stretch">
+            <div className="md:col-span-2 bg-white rounded-2xl p-8 shadow-card ring-1 ring-[#0B3D91]/10">
+              <h3 className="text-3xl md:text-4xl font-extrabold text-indigo-900">Judging & Prizes</h3>
+              <p className="mt-4 text-indigo-900/90 leading-relaxed">
+                A diverse judging panel—investors, entrepreneurs, professors, and civic leaders—evaluates teams on problem fit, product, and go‑to‑market.
+              </p>
+              <ul className="mt-5 space-y-2 text-indigo-900/90">
+                <li>• Category and overall awards</li>
+                <li>• Real feedback from experts</li>
+                <li>• Access to Emory’s venture ecosystem</li>
+              </ul>
+            </div>
+            <div className="bg-[#0B3D91] text-white rounded-2xl p-8 shadow-card flex flex-col justify-center">
+              <div className="text-5xl font-extrabold">$13K+</div>
+              <div className="mt-2 text-indigo-100">Prize pool</div>
+              <img src="/images/hackatl/trophy.jpg" alt="Trophy" className="mt-6 w-full h-24 object-cover rounded-xl" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* TRACK RECORD */}
+      <section className="relative bg-gradient-to-b from-[#eef4ff] via-[#f6f9ff] to-white">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 py-16 md:py-24">
+          <h3 className="text-3xl md:text-4xl font-extrabold text-indigo-900">Track Record</h3>
+          <div className="mt-8 grid md:grid-cols-2 gap-6">
+            <div className="bg-white rounded-2xl p-6 shadow-card ring-1 ring-[#0B3D91]/10">
+              <h4 className="text-xl font-bold text-indigo-900">2021 — The Great Hacksby</h4>
+              <ul className="mt-3 text-indigo-900/90 space-y-1">
+                <li>1st — Team Clip ($5,000)</li>
+                <li>2nd — Trident ($3,000)</li>
+                <li>3rd — Eco Friends ($2,000)</li>
+              </ul>
+            </div>
+            <div className="bg-white rounded-2xl p-6 shadow-card ring-1 ring-[#0B3D91]/10">
+              <h4 className="text-xl font-bold text-indigo-900">2024 — Smart Cities</h4>
+              <p className="mt-3 text-indigo-900/90">300+ students; prompt centered on Smart Cities; $13K+ awarded.</p>
+            </div>
+          </div>
+          <div className="mt-8 grid md:grid-cols-3 gap-6">
+            <img src="/images/hackatl/past1.jpg" alt="Past winner 1" className="w-full h-40 object-cover rounded-xl" />
+            <img src="/images/hackatl/past2.jpg" alt="Past winner 2" className="w-full h-40 object-cover rounded-xl" />
+            <img src="/images/hackatl/past3.jpg" alt="Past winner 3" className="w-full h-40 object-cover rounded-xl" />
+          </div>
+        </div>
+      </section>
+
+      {/* WHEN & WHERE */}
+      <section className="relative bg-gradient-to-b from-white via-[#eaf3ff] to-[#e3eeff]">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 py-16 md:py-24">
+          <div className="grid md:grid-cols-2 gap-8 items-start">
+            <div>
+              <h3 className="text-3xl md:text-4xl font-extrabold text-indigo-900">When & Where</h3>
+              <p className="mt-4 text-indigo-900/90 leading-relaxed">
+                HackATL typically runs over a weekend in October during the InnovATL season, at Goizueta Business School, 1300 Clifton Rd NE, Atlanta, GA 30322. Exact dates vary—check the current registration page.
+              </p>
+              <div className="mt-4 text-indigo-900/80">
+                Goizueta Business School, Emory University
               </div>
-              <p className="mt-4 text-indigo-900 font-semibold">look @ back of hackatl shirt to see how logos are collaged/scattered, mimic that here</p>
             </div>
+            <div>
+              <img src="/images/hackatl/building.jpg" alt="Goizueta" className="w-full h-64 object-cover rounded-2xl" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* WHO RUNS */}
+      <section className="relative bg-gradient-to-b from-[#e3eeff] via-[#eaf3ff] to-white">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 py-16 md:py-24">
+          <div className="grid md:grid-cols-2 gap-10 items-center">
+            <div>
+              <h3 className="text-3xl md:text-4xl font-extrabold text-indigo-900">Who Runs HackATL</h3>
+              <p className="mt-4 text-indigo-900/90 leading-relaxed">
+                HackATL is organized by EEVM in partnership with Goizueta’s Center for Entrepreneurship & Innovation, with support from InnovATL and the City of Atlanta.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-6">
+              <a href="https://www.eevm.org/" target="_blank" rel="noreferrer" className="bg-white rounded-lg ring-1 ring-[#0B3D91]/10 shadow-card flex items-center justify-center p-3 hover:ring-[#0B3D91]/30 transition">
+                <img src="https://www.eevm.org/logos/eevm_partial-h128.webp" alt="EEVM" className="h-14 w-auto" />
+              </a>
+              <a href="https://goizueta.emory.edu/faculty/entrepreneurship-innovation/programs" target="_blank" rel="noreferrer" className="bg-white rounded-lg ring-1 ring-[#0B3D91]/10 shadow-card flex items-center justify-center p-3 hover:ring-[#0B3D91]/30 transition">
+                <img src="https://phosphor.utils.elfsightcdn.com/?url=https%3A%2F%2Fmedia.licdn.com%2Fdms%2Fimage%2Fv2%2FD560BAQFaNy5L-LlQug%2Fcompany-logo_400_400%2Fcompany-logo_400_400%2F0%2F1700246347989%2Frcgcei_logo%3Fe%3D1760572800%26v%3Dbeta%26t%3DPIqxNkl3Gx32ZycNrBPJYpOIo0g8vtkeDur-abtBHVs" alt="CEI • Goizueta" className="h-14 md:h-16 w-auto" />
+              </a>
+              <a href="https://innovatl2025.com/" target="_blank" rel="noreferrer" className="bg-white rounded-lg ring-1 ring-[#0B3D91]/10 shadow-card flex items-center justify-center p-3 hover:ring-[#0B3D91]/30 transition">
+                <img src="/images/hackatl/innovate_atl.png" alt="InnovATL 2025" className="h-14 md:h-16 w-auto object-contain" />
+              </a>
+              <a href="https://upload.wikimedia.org/wikipedia/commons/8/80/Seal_of_Atlanta.png" target="_blank" rel="noreferrer" className="bg-white rounded-lg ring-1 ring-[#0B3D91]/10 shadow-card flex items-center justify-center p-3 hover:ring-[#0B3D91]/30 transition">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/80/Seal_of_Atlanta.png" alt="City of Atlanta" className="h-16 w-auto" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* WHY DIFFERENT */}
+      <section className="relative bg-gradient-to-b from-white via-[#eaf3ff] to-[#e3eeff]">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 py-16 md:py-24">
+          <div className="grid md:grid-cols-3 gap-8 items-stretch">
+            <div className="md:col-span-2 bg-[#0B3D91] text-white rounded-3xl p-10 shadow-card">
+              <h3 className="text-3xl md:text-4xl font-extrabold">Why HackATL is Different</h3>
+              <p className="mt-4 text-indigo-100 leading-relaxed">
+                Unlike code‑only hackathons, HackATL balances business rigor with technical build, mixing workshops, mentorship, and investor‑style pitching so teams leave with both a prototype and an executable plan.
+              </p>
+            </div>
+            <img src="/images/hackatl/hero1.jpg" alt="HackATL experience" className="w-full h-64 md:h-auto object-cover rounded-3xl shadow-card" />
+          </div>
+        </div>
+      </section>
+
+      {/* FAQS */}
+      <section className="relative bg-gradient-to-b from-[#e3eeff] via-[#f2f7ff] to-white">
+        <div className="max-w-4xl mx-auto px-6 sm:px-8 py-16 md:py-24">
+          <h3 className="text-3xl md:text-4xl font-extrabold text-indigo-900 text-center">FAQs</h3>
+          <div className="mt-8 divide-y divide-[#c0cff1] rounded-2xl bg-white shadow-card ring-1 ring-[#0B3D91]/10">
+            {[
+              {q:'Who can apply?', a:'Students (undergrad/grad) from Emory and other universities. Multidisciplinary teams are encouraged; solo applicants can find teammates at kickoff.'},
+              {q:'Do I have to code?', a:'No. Teams need builders, designers, and business leads. Non‑technical contributors are essential.'},
+              {q:'How big are teams?', a:'Teams form at the event; most groups mix 3–5 people across skills (final team sizes and rules announced at kickoff).'},
+              {q:'What support will I get?', a:'Workshops, mentor hours, and structured feedback sessions run throughout Saturday; Sunday focuses on pitch prep.'},
+              {q:'What do winners receive?', a:'Cash awards (historically $13K+ across prizes) and access to Emory’s entrepreneurship ecosystem; standout teams often continue via campus programs.'},
+              {q:'What are past themes?', a:'Examples include The Great Hacksby (2021) and a Smart Cities prompt (2024).'},
+              {q:'Is it only for Emory students?', a:'No—HackATL regularly draws students from many universities across the Southeast (and beyond).'},
+              {q:'Where is it on campus?', a:'Goizueta Business School, Emory University (Atlanta).'},
+            ].map((item, i) => (
+              <details key={i} className="group p-6">
+                <summary className="flex cursor-pointer list-none items-center justify-between text-indigo-900 font-semibold">{item.q}
+                  <span className="ml-4 text-indigo-400 group-open:hidden">+</span>
+                  <span className="ml-4 text-indigo-400 hidden group-open:inline">−</span>
+                </summary>
+                <p className="mt-3 text-indigo-900/80 leading-relaxed">{item.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* GET INVOLVED */}
+      <section className="relative overflow-hidden bg-white">
+        {/* NASA skyline burst at the top of the section */}
+        <div className="pointer-events-none absolute inset-x-0 -top-20 h-[280px] [background:radial-gradient(120%_80%_at_50%_0%,#0B3D91_0%,#001A3A_50%,transparent_72%)]" />
+        {/* soft star field overlay */}
+        <div className="pointer-events-none absolute inset-x-0 -top-20 h-[280px] opacity-15 [background:radial-gradient(#ffffff_1px,transparent_1px)] [background-size:3px_3px]" />
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 py-16 md:py-24">
+          <h3 className="text-3xl md:text-4xl font-extrabold text-indigo-900 text-center">Get Involved</h3>
+          <div className="mt-10 grid md:grid-cols-3 gap-6">
+            {[
+              {t:'Compete', d:'Build a team at kickoff or bring your own—come ready to move fast.', img:'/images/hackatl/compete.jpg'},
+              {t:'Mentor / Judge / Sponsor', d:'Each year’s panel and sponsors vary; interested partners connect through Goizueta’s entrepreneurship center.', img:'/images/hackatl/mentor.jpg'},
+              {t:'Volunteer', d:'Help run the Southeast’s largest student‑run business hackathon.', img:'/images/hackatl/volunteer.jpg'},
+            ].map((c,i)=> (
+              <div key={i} className="bg-white rounded-2xl p-6 shadow-card ring-1 ring-[#0B3D91]/10 flex flex-col">
+                <img src={c.img} alt={c.t} className="w-full h-32 object-cover rounded-xl mb-4" />
+                <h4 className="text-xl font-bold text-indigo-900">{c.t}</h4>
+                <p className="mt-2 text-indigo-900/80 leading-relaxed">{c.d}</p>
+                <div className="mt-4">
+                  <button className="inline-flex items-center rounded-full bg-[#FC3D21] hover:bg-[#ff5a3f] text-white font-semibold px-5 py-2 text-sm shadow">
+                    Learn more
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
