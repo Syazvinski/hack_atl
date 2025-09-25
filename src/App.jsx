@@ -108,7 +108,12 @@ function App() {
                 <span className="block">2025</span>
               </h1>
               <div className="mt-6 sm:mt-8 inline-flex flex-wrap items-center gap-3 sm:gap-4">
-                <a href="#" className="inline-flex items-center rounded-full bg-teal-500 hover:bg-teal-400 text-white font-semibold whitespace-nowrap px-6 sm:px-7 md:px-8 py-3 sm:py-3.5 text-base sm:text-lg shadow-xl hover:shadow-[0_0_20px_rgba(20,184,166,0.4)] transition-all duration-300 transform hover:scale-105 ring-2 ring-white/20">
+                <a
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSfvLt2ExtqgtWa8NWj25WveqK2UzSRW7Ni6b6NLpv08r3lk7A/viewform"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center rounded-full bg-teal-500 hover:bg-teal-400 text-white font-semibold whitespace-nowrap px-6 sm:px-7 md:px-8 py-3 sm:py-3.5 text-base sm:text-lg shadow-xl hover:shadow-[0_0_20px_rgba(20,184,166,0.4)] transition-all duration-300 transform hover:scale-105 ring-2 ring-white/20"
+                >
                   SIGN UP NOW
                 </a>
                 <div className="text-white/90 tracking-wide text-sm sm:text-base md:text-lg font-medium">
@@ -406,9 +411,14 @@ function App() {
                 <h4 className="text-xl font-bold text-indigo-900">{c.t}</h4>
                 <p className="mt-2 text-indigo-900/80 leading-relaxed">{c.d}</p>
                 <div className="mt-4">
-                  <button className="inline-flex items-center gap-2 rounded-full bg-teal-500 hover:bg-teal-400 text-white font-semibold px-5 py-2 text-sm shadow">
+                  <a
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSfvLt2ExtqgtWa8NWj25WveqK2UzSRW7Ni6b6NLpv08r3lk7A/viewform"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full bg-teal-500 hover:bg-teal-400 text-white font-semibold px-5 py-2 text-sm shadow"
+                  >
                     <RocketIcon className="w-4 h-4 text-white" /> Learn more
-                  </button>
+                  </a>
                 </div>
               </div>
             ))}

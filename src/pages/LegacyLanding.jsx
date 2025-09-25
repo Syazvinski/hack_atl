@@ -29,7 +29,12 @@ export default function LegacyLanding() {
                     <span className="block">2025</span>
                   </h1>
                   <div className="mt-8 inline-flex items-center gap-4">
-                    <a href="#" className="inline-flex items-center rounded-full bg-fuchsia-500 text-white font-semibold px-8 py-3 shadow-lg">
+                    <a
+                      href="https://docs.google.com/forms/d/e/1FAIpQLSfvLt2ExtqgtWa8NWj25WveqK2UzSRW7Ni6b6NLpv08r3lk7A/viewform"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center rounded-full bg-fuchsia-500 text-white font-semibold px-8 py-3 shadow-lg"
+                    >
                       SIGN UP NOW
                     </a>
                     <span className="text-white/80 uppercase tracking-wider text-xs">Dates & Location go here</span>
@@ -102,4 +107,3 @@ export default function LegacyLanding() {
     </div>
   )
 }
-
