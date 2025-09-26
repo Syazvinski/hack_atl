@@ -396,10 +396,10 @@ function App() {
 
       {/* GET INVOLVED */}
       <section className="relative overflow-hidden bg-white">
-        {/* NASA skyline burst at the top of the section */}
-        <div className="pointer-events-none absolute inset-x-0 -top-20 h-[280px] [background:radial-gradient(120%_80%_at_50%_0%,#0B3D91_0%,#001A3A_50%,transparent_72%)]" />
-        {/* soft star field overlay */}
-        <div className="pointer-events-none absolute inset-x-0 -top-20 h-[280px] opacity-15 [background:radial-gradient(#ffffff_1px,transparent_1px)] [background-size:3px_3px]" />
+        {/* Soft transition band from FAQs */}
+        <div className="pointer-events-none absolute inset-x-0 -top-24 h-32 bg-gradient-to-b from-[#e3eeff] via-white to-transparent" />
+        {/* subtle star field accents */}
+        <div className="pointer-events-none absolute inset-x-0 -top-16 h-40 opacity-20 [background:radial-gradient(circle,#0B3D91_0.5px,transparent_0.5px)] [background-size:28px_28px]" />
         <div className="max-w-6xl mx-auto px-6 sm:px-8 py-16 md:py-24">
           <h3 className="text-3xl md:text-4xl font-extrabold text-indigo-900 text-center">Get Involved</h3>
           <div className="mt-10">
