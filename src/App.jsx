@@ -67,23 +67,23 @@ function App() {
   return (
     <div className="min-h-screen w-full bg-white">
       {/* HERO */}
-      <section className="relative overflow-hidden min-h-[80vh] sm:min-h-[85vh] md:min-h-[88vh]">
+      <section className="relative overflow-hidden min-h-[100svh] flex items-center">
         <div className="absolute inset-0 bg-gradient-to-tr from-[#001A3A] via-[#0B3D91] to-[#0B3D91]" />
 
         {/* Left offset full-height dark circle */}
         <div
-          className="pointer-events-none absolute left-0 top-1/2 -translate-x-[35%] -translate-y-1/2 w-[110vw] h-[110vw] sm:w-[92vh] sm:h-[92vh] bg-[#001A3A] rounded-full shadow-2xl"
+          className="pointer-events-none absolute left-0 top-1/2 -translate-x-[35%] -translate-y-1/2 w-[110vw] h-[110vw] sm:w-[90vw] sm:h-[90vw] md:w-[92vh] md:h-[92vh] bg-[#001A3A] rounded-full shadow-2xl"
           aria-hidden
         />
 
         {/* Top-right circular group photo matching full-height footprint */}
-        <div className="pointer-events-none absolute top-1/2 -translate-y-1/2 right-2 sm:right-8 md:right-16 w-[80vw] h-[80vw] sm:w-[65vh] sm:h-[65vh] md:w-[80vh] md:h-[80vh] rounded-full overflow-hidden border-[10px] border-white/40 shadow-2xl">
+        <div className="pointer-events-none absolute top-1/2 -translate-y-1/2 right-2 sm:right-8 md:right-16 w-[70vw] h-[70vw] sm:w-[60vw] sm:h-[60vw] md:w-[65vh] md:h-[65vh] lg:w-[75vh] lg:h-[75vh] xl:w-[80vh] xl:h-[80vh] rounded-full overflow-hidden border-[10px] border-white/40 shadow-2xl">
           <img src="https://www.emorybusiness.com/wp-content/uploads/2021/11/HACKAtl-team-scaled.jpg" alt="HackATL team group" className="w-full h-full object-cover" />
         </div>
 
-        <div className="relative max-w-6xl mx-auto px-6 sm:px-8 py-12 md:py-20 pt-24 md:pt-32 lg:pt-40">
+        <div className="relative w-full max-w-6xl mx-auto px-6 sm:px-8 py-8 sm:py-12 md:py-16 lg:py-24">
           {/* Logos row positioned inside the left circle */}
-          <div className="relative z-10 mt-10 md:mt-14 lg:mt-16 w-[76vw] sm:w-[42vh] lg:w-[46vh] max-w-[680px] -ml-2 sm:-ml-10 lg:-ml-24 xl:-ml-40">
+          <div className="relative z-10 mt-4 sm:mt-8 md:mt-12 lg:mt-16 w-full max-w-xl sm:max-w-2xl lg:max-w-[680px] lg:-ml-16 xl:-ml-24">
             <div className="flex items-center gap-4 md:gap-6 lg:gap-8">
               <img
                 src="https://www.eevm.org/logos/eevm_partial-h128.webp"
@@ -101,9 +101,9 @@ function App() {
           </div>
 
           {/* Headline and CTA sitting over circle */}
-          <div className="mt-12 md:mt-16 lg:mt-24 relative z-10">
+          <div className="mt-6 sm:mt-10 md:mt-14 lg:mt-20 relative z-10">
             {/* Constrain the text block to the visible right-half of the circle */}
-            <div className="w-[76vw] sm:w-[42vh] lg:w-[46vh] max-w-[680px] -ml-2 sm:-ml-10 lg:-ml-24 xl:-ml-40">
+            <div className="w-full max-w-xl sm:max-w-2xl lg:max-w-[680px] lg:-ml-16 xl:-ml-24">
               <h1 className="text-white text-[46px] sm:text-[68px] md:text-[92px] leading-[0.95] font-extrabold tracking-tight drop-shadow">
                 HackATL
                 <br />
@@ -402,28 +402,24 @@ function App() {
         <div className="pointer-events-none absolute inset-x-0 -top-20 h-[280px] opacity-15 [background:radial-gradient(#ffffff_1px,transparent_1px)] [background-size:3px_3px]" />
         <div className="max-w-6xl mx-auto px-6 sm:px-8 py-16 md:py-24">
           <h3 className="text-3xl md:text-4xl font-extrabold text-indigo-900 text-center">Get Involved</h3>
-          <div className="mt-10 grid md:grid-cols-3 gap-6">
-            {[
-              {t:'Compete', d:'Build a team at kickoff or bring your own—come ready to move fast.', img:'/images/hackatl/compete.webp'},
-              {t:'Mentor / Judge / Sponsor', d:'Each year’s panel and sponsors vary; interested partners connect through Goizueta’s entrepreneurship center.', img:'/images/hackatl/mentor.webp'},
-              {t:'Volunteer', d:'Help run the Southeast’s largest student‑run business hackathon.', img:'/images/hackatl/volunteer.webp'},
-            ].map((c,i)=> (
-              <div key={i} className="bg-white rounded-2xl p-6 shadow-card ring-1 ring-[#0B3D91]/10 flex flex-col">
-                <img src={c.img} alt={c.t} className="w-full h-32 object-cover rounded-xl mb-4" loading="lazy" />
-                <h4 className="text-xl font-bold text-indigo-900">{c.t}</h4>
-                <p className="mt-2 text-indigo-900/80 leading-relaxed">{c.d}</p>
-                <div className="mt-4">
-                  <a
-                    href="https://docs.google.com/forms/d/e/1FAIpQLSfvLt2ExtqgtWa8NWj25WveqK2UzSRW7Ni6b6NLpv08r3lk7A/viewform"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full bg-teal-500 hover:bg-teal-400 text-white font-semibold px-5 py-2 text-sm shadow"
-                  >
-                    <RocketIcon className="w-4 h-4 text-white" /> Learn more
-                  </a>
-                </div>
+          <div className="mt-10">
+            <div className="bg-white rounded-2xl p-6 shadow-card ring-1 ring-[#0B3D91]/10 flex flex-col md:flex-row md:items-center md:gap-8">
+              <img src="/images/hackatl/mentor.webp" alt="Mentor / Judge / Sponsor" className="w-full md:w-72 h-40 object-cover rounded-xl mb-4 md:mb-0" loading="lazy" />
+              <div className="flex-1 md:min-w-0">
+                <h4 className="text-xl font-bold text-indigo-900">Mentor / Judge / Sponsor</h4>
+                <p className="mt-2 text-indigo-900/80 leading-relaxed">Each year’s panel and sponsors vary; interested partners connect through Goizueta’s entrepreneurship center.</p>
               </div>
-            ))}
+              <div className="mt-4 md:mt-0">
+                <a
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSfvLt2ExtqgtWa8NWj25WveqK2UzSRW7Ni6b6NLpv08r3lk7A/viewform"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full bg-teal-500 hover:bg-teal-400 text-white font-semibold px-5 py-2 text-sm shadow"
+                >
+                  <RocketIcon className="w-4 h-4 text-white" /> Learn more
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
