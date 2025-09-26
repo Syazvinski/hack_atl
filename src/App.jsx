@@ -411,7 +411,7 @@ function App() {
               </div>
               <div className="mt-4 md:mt-0">
                 <a
-                  href="https://docs.google.com/forms/d/e/1FAIpQLSfvLt2ExtqgtWa8NWj25WveqK2UzSRW7Ni6b6NLpv08r3lk7A/viewform"
+                  href="https://f005.backblazeb2.com/file/syazvin/HackATL+Corporate+Packet+2025.pdf"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center gap-2 rounded-full bg-teal-500 hover:bg-teal-400 text-white font-semibold px-5 py-2 text-sm shadow"
