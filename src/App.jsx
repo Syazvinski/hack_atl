@@ -60,6 +60,7 @@ const RocketIcon = (props) => (
     <path d="M12 4l2 4-4 2 2-6Z" />
   </Icon>
 )
+import { Analytics } from '@vercel/analytics/react'
 import { EVENT } from './data/event'
 
 function App() {
@@ -91,9 +92,10 @@ function App() {
               />
               <span className="text-white/80 text-2xl md:text-3xl">×</span>
             <img
-              src="/images/hackatl/hackatl_logo_whitefill.png"
+              src="/images/hackatl/hackatl_logo_whitefill.webp"
               alt="HackATL 2025 logo"
               className="h-12 md:h-16 lg:h-24 w-auto"
+              loading="lazy"
             />
             </div>
           </div>
@@ -145,19 +147,19 @@ function App() {
             </div>
             <div className="md:pl-6">
               <div className="rounded-2xl overflow-hidden shadow-card ring-1 ring-[#0B3D91]/10">
-                <img src="/images/hackatl/overview.jpg" alt="Overview" className="w-full h-auto object-cover" />
+                <img src="/images/hackatl/overview.webp" alt="Overview" className="w-full h-auto object-cover" loading="lazy" />
               </div>
             </div>
           </div>
 
           <div className="mt-14 grid md:grid-cols-3 gap-6">
             {[
-              {t:'Workshops', img:'/images/hackatl/workshops.jpg'},
-              {t:'Mentoring', img:'/images/hackatl/mentoring2.jpg'},
-              {t:'Investor Panel', img:'/images/hackatl/investor.jpg'},
+              {t:'Workshops', img:'/images/hackatl/workshops.webp'},
+              {t:'Mentoring', img:'/images/hackatl/mentoring2.webp'},
+              {t:'Investor Panel', img:'/images/hackatl/investor.webp'},
             ].map((c,i)=> (
               <div key={i} className="bg-white rounded-xl p-6 shadow-card ring-1 ring-[#0B3D91]/10">
-                <img src={c.img} alt={c.t} className="w-full h-32 object-cover rounded-lg mb-4" />
+                <img src={c.img} alt={c.t} className="w-full h-32 object-cover rounded-lg mb-4" loading="lazy" />
                 <p className="text-indigo-900 font-semibold">{c.t}</p>
               </div>
             ))}
@@ -176,7 +178,7 @@ function App() {
               </p>
             </div>
             <div>
-              <img src="/images/hackatl/partners.jpg" alt="Partners" className="w-full h-40 object-cover rounded-xl" />
+              <img src="/images/hackatl/partners.webp" alt="Partners" className="w-full h-40 object-cover rounded-xl" loading="lazy" />
             </div>
           </div>
         </div>
@@ -228,7 +230,7 @@ function App() {
               </ul>
             </div>
             <div>
-              <img src="/images/hackatl/teamwork.jpg" alt="Team working" className="w-full h-64 object-cover rounded-2xl" />
+              <img src="/images/hackatl/teamwork.webp" alt="Team working" className="w-full h-64 object-cover rounded-2xl" loading="lazy" />
             </div>
           </div>
         </div>
@@ -239,7 +241,7 @@ function App() {
         <div className="max-w-6xl mx-auto px-6 sm:px-8 py-16 md:py-24">
           <div className="grid md:grid-cols-2 gap-10 items-center">
             <div>
-              <img src="/images/hackatl/crowd.jpg" alt="Crowd" className="w-full h-72 object-cover rounded-2xl" />
+              <img src="/images/hackatl/crowd.webp" alt="Crowd" className="w-full h-72 object-cover rounded-2xl" loading="lazy" />
             </div>
             <div>
               <h3 className="text-3xl md:text-4xl font-extrabold text-indigo-900">Who Participates</h3>
@@ -269,7 +271,7 @@ function App() {
             <div className="bg-[#0B3D91] text-white rounded-2xl p-8 shadow-card flex flex-col justify-center">
               <div className="text-5xl font-extrabold">$13K+</div>
               <div className="mt-2 text-indigo-100">Prize pool</div>
-              <img src="/images/hackatl/trophy.jpg" alt="Trophy" className="mt-6 w-full h-24 object-cover rounded-xl" />
+              <img src="/images/hackatl/trophy.webp" alt="Trophy" className="mt-6 w-full h-24 object-cover rounded-xl" loading="lazy" />
             </div>
           </div>
         </div>
@@ -294,9 +296,9 @@ function App() {
             </div>
           </div>
           <div className="mt-8 grid md:grid-cols-3 gap-6">
-            <img src="/images/hackatl/past1.jpg" alt="Past winner 1" className="w-full h-40 object-cover rounded-xl" />
-            <img src="/images/hackatl/past2.jpg" alt="Past winner 2" className="w-full h-40 object-cover rounded-xl" />
-            <img src="/images/hackatl/past3.jpg" alt="Past winner 3" className="w-full h-40 object-cover rounded-xl" />
+            <img src="/images/hackatl/past1.webp" alt="Past winner 1" className="w-full h-40 object-cover rounded-xl" loading="lazy" />
+            <img src="/images/hackatl/past2.webp" alt="Past winner 2" className="w-full h-40 object-cover rounded-xl" loading="lazy" />
+            <img src="/images/hackatl/past3.webp" alt="Past winner 3" className="w-full h-40 object-cover rounded-xl" loading="lazy" />
           </div>
         </div>
       </section>
@@ -316,7 +318,7 @@ function App() {
               </div>
             </div>
             <div>
-              <img src="/images/hackatl/building.jpg" alt="Goizueta" className="w-full h-64 object-cover rounded-2xl" />
+              <img src="/images/hackatl/building.webp" alt="Goizueta" className="w-full h-64 object-cover rounded-2xl" loading="lazy" />
             </div>
           </div>
         </div>
@@ -340,7 +342,7 @@ function App() {
                 <img src="https://phosphor.utils.elfsightcdn.com/?url=https%3A%2F%2Fmedia.licdn.com%2Fdms%2Fimage%2Fv2%2FD560BAQFaNy5L-LlQug%2Fcompany-logo_400_400%2Fcompany-logo_400_400%2F0%2F1700246347989%2Frcgcei_logo%3Fe%3D1760572800%26v%3Dbeta%26t%3DPIqxNkl3Gx32ZycNrBPJYpOIo0g8vtkeDur-abtBHVs" alt="CEI • Goizueta" className="h-14 md:h-16 w-auto" />
               </a>
               <a href="https://innovatl2025.com/" target="_blank" rel="noreferrer" className="bg-white rounded-lg ring-1 ring-[#0B3D91]/10 shadow-card flex items-center justify-center p-3 hover:ring-[#0B3D91]/30 transition">
-                <img src="/images/hackatl/innovate_atl.png" alt="InnovATL 2025" className="h-14 md:h-16 w-auto object-contain" />
+                <img src="/images/hackatl/innovate_atl.webp" alt="InnovATL 2025" className="h-14 md:h-16 w-auto object-contain" loading="lazy" />
               </a>
               <a href="https://upload.wikimedia.org/wikipedia/commons/8/80/Seal_of_Atlanta.png" target="_blank" rel="noreferrer" className="bg-white rounded-lg ring-1 ring-[#0B3D91]/10 shadow-card flex items-center justify-center p-3 hover:ring-[#0B3D91]/30 transition">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/8/80/Seal_of_Atlanta.png" alt="City of Atlanta" className="h-16 w-auto" />
@@ -360,7 +362,7 @@ function App() {
                 Unlike code‑only hackathons, HackATL balances business rigor with technical build, mixing workshops, mentorship, and investor‑style pitching so teams leave with both a prototype and an executable plan.
               </p>
             </div>
-            <img src="/images/hackatl/hero1.jpg" alt="HackATL experience" className="w-full h-64 md:h-auto object-cover rounded-3xl shadow-card" />
+            <img src="/images/hackatl/hero1.webp" alt="HackATL experience" className="w-full h-64 md:h-auto object-cover rounded-3xl shadow-card" loading="lazy" />
           </div>
         </div>
       </section>
@@ -402,12 +404,12 @@ function App() {
           <h3 className="text-3xl md:text-4xl font-extrabold text-indigo-900 text-center">Get Involved</h3>
           <div className="mt-10 grid md:grid-cols-3 gap-6">
             {[
-              {t:'Compete', d:'Build a team at kickoff or bring your own—come ready to move fast.', img:'/images/hackatl/compete.jpg'},
-              {t:'Mentor / Judge / Sponsor', d:'Each year’s panel and sponsors vary; interested partners connect through Goizueta’s entrepreneurship center.', img:'/images/hackatl/mentor.jpg'},
-              {t:'Volunteer', d:'Help run the Southeast’s largest student‑run business hackathon.', img:'/images/hackatl/volunteer.jpg'},
+              {t:'Compete', d:'Build a team at kickoff or bring your own—come ready to move fast.', img:'/images/hackatl/compete.webp'},
+              {t:'Mentor / Judge / Sponsor', d:'Each year’s panel and sponsors vary; interested partners connect through Goizueta’s entrepreneurship center.', img:'/images/hackatl/mentor.webp'},
+              {t:'Volunteer', d:'Help run the Southeast’s largest student‑run business hackathon.', img:'/images/hackatl/volunteer.webp'},
             ].map((c,i)=> (
               <div key={i} className="bg-white rounded-2xl p-6 shadow-card ring-1 ring-[#0B3D91]/10 flex flex-col">
-                <img src={c.img} alt={c.t} className="w-full h-32 object-cover rounded-xl mb-4" />
+                <img src={c.img} alt={c.t} className="w-full h-32 object-cover rounded-xl mb-4" loading="lazy" />
                 <h4 className="text-xl font-bold text-indigo-900">{c.t}</h4>
                 <p className="mt-2 text-indigo-900/80 leading-relaxed">{c.d}</p>
                 <div className="mt-4">
@@ -426,6 +428,7 @@ function App() {
         </div>
       </section>
 
+      <Analytics />
     </div>
   )
 }
