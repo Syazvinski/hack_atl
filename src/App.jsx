@@ -153,8 +153,8 @@ function App() {
           <div className="mt-14 grid md:grid-cols-3 gap-6">
             {[
               {t:'Workshops', img:'/images/hackatl/workshops.jpg'},
-              {t:'Mentoring', img:'/images/hackatl/mentoring2.jpg'},
-              {t:'Investor Panel', img:'/images/hackatl/investor.jpg'},
+              {t:'Mentoring', img:'/images/hackatl/DSC08306.jpg'},
+              {t:'Investor Panel', img:'/images/hackatl/DSC08341.jpg'},
             ].map((c,i)=> (
               <div key={i} className="bg-white rounded-xl p-6 shadow-card ring-1 ring-[#0B3D91]/10">
                 <img src={c.img} alt={c.t} className="w-full h-32 object-cover rounded-lg mb-4" />
@@ -176,7 +176,7 @@ function App() {
               </p>
             </div>
             <div>
-              <img src="/images/hackatl/partners.jpg" alt="Partners" className="w-full h-40 object-cover rounded-xl" />
+              <img src="/images/hackatl/DSC08259.jpg" alt="Partners" className="w-full h-40 object-cover rounded-xl" />
             </div>
           </div>
         </div>
@@ -294,9 +294,9 @@ function App() {
             </div>
           </div>
           <div className="mt-8 grid md:grid-cols-3 gap-6">
-            <img src="/images/hackatl/past1.jpg" alt="Past winner 1" className="w-full h-40 object-cover rounded-xl" />
-            <img src="/images/hackatl/past2.jpg" alt="Past winner 2" className="w-full h-40 object-cover rounded-xl" />
-            <img src="/images/hackatl/past3.jpg" alt="Past winner 3" className="w-full h-40 object-cover rounded-xl" />
+            <img src="/images/hackatl/DSC08340.jpg" alt="Past winner 1" className="w-full h-40 object-cover rounded-xl" />
+            <img src="images/hackatl/IMG_2623.JPG" alt="Past winner 2" className="w-full h-40 object-cover rounded-xl" />
+            <img src="/images/hackatl/IMG_2634.JPG" alt="Past winner 3" className="w-full h-40 object-cover rounded-xl" />
           </div>
         </div>
       </section>
