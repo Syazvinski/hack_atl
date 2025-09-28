@@ -154,15 +154,9 @@ function App() {
 
           <div className="mt-14 grid md:grid-cols-3 gap-6">
             {[
-<<<<<<< HEAD
-              {t:'Workshops', img:'/images/hackatl/workshops.jpg'},
-              {t:'Mentoring', img:'/images/hackatl/DSC08306.jpg'},
-              {t:'Investor Panel', img:'/images/hackatl/DSC08341.jpg'},
-=======
               {t:'Workshops', img:'/images/hackatl/workshops.webp'},
               {t:'Mentoring', img:'/images/hackatl/mentoring2.webp'},
               {t:'Investor Panel', img:'/images/hackatl/investor.webp'},
->>>>>>> 1497ce3fbe5c8963c74a14bfbe8eaccc32eb01f8
             ].map((c,i)=> (
               <div key={i} className="bg-white rounded-xl p-6 shadow-card ring-1 ring-[#0B3D91]/10">
                 <img src={c.img} alt={c.t} className="w-full h-32 object-cover rounded-lg mb-4" loading="lazy" />
@@ -184,11 +178,7 @@ function App() {
               </p>
             </div>
             <div>
-<<<<<<< HEAD
-              <img src="/images/hackatl/DSC08259.jpg" alt="Partners" className="w-full h-40 object-cover rounded-xl" />
-=======
               <img src="/images/hackatl/partners.webp" alt="Partners" className="w-full h-40 object-cover rounded-xl" loading="lazy" />
->>>>>>> 1497ce3fbe5c8963c74a14bfbe8eaccc32eb01f8
             </div>
           </div>
         </div>
@@ -306,15 +296,9 @@ function App() {
             </div>
           </div>
           <div className="mt-8 grid md:grid-cols-3 gap-6">
-<<<<<<< HEAD
-            <img src="/images/hackatl/DSC08340.jpg" alt="Past winner 1" className="w-full h-40 object-cover rounded-xl" />
-            <img src="images/hackatl/IMG_2623.JPG" alt="Past winner 2" className="w-full h-40 object-cover rounded-xl" />
-            <img src="/images/hackatl/IMG_2634.JPG" alt="Past winner 3" className="w-full h-40 object-cover rounded-xl" />
-=======
             <img src="/images/hackatl/past1.webp" alt="Past winner 1" className="w-full h-40 object-cover rounded-xl" loading="lazy" />
             <img src="/images/hackatl/past2.webp" alt="Past winner 2" className="w-full h-40 object-cover rounded-xl" loading="lazy" />
             <img src="/images/hackatl/past3.webp" alt="Past winner 3" className="w-full h-40 object-cover rounded-xl" loading="lazy" />
->>>>>>> 1497ce3fbe5c8963c74a14bfbe8eaccc32eb01f8
           </div>
         </div>
       </section>
