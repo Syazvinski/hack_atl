@@ -148,7 +148,7 @@ function App() {
             </div>
             <div className="md:pl-6">
               <div className="rounded-2xl overflow-hidden shadow-card ring-1 ring-[#0B3D91]/10">
-                <img src="/images/hackatl/DSC08340.jpg" alt="Overview" className="w-full h-auto object-cover" loading="lazy" />
+                <img src="/images/hackatl/DSC08340.webp" alt="Overview" className="w-full h-auto object-cover" loading="lazy" />
               </div>
             </div>
           </div>
@@ -156,8 +156,8 @@ function App() {
           <div className="mt-14 grid md:grid-cols-3 gap-6">
             {[
               {t:'Workshops', img:'/images/hackatl/workshops.webp'},
-              {t:'Mentoring', img:'/images/hackatl/DSC08306.jpg'},
-              {t:'Investor Panel', img:'/images/hackatl/IMG_2578.JPG'},
+              {t:'Mentoring', img:'/images/hackatl/DSC08306.webp'},
+              {t:'Investor Panel', img:'/images/hackatl/IMG_2578.webp'},
             ].map((c,i)=> (
               <div key={i} className="bg-white rounded-xl p-6 shadow-card ring-1 ring-[#0B3D91]/10">
                 <img src={c.img} alt={c.t} className="w-full h-32 object-cover rounded-lg mb-4" loading="lazy" />
@@ -179,7 +179,7 @@ function App() {
               </p>
             </div>
             <div>
-              <img src="images/hackatl/DSC08259.jpg" alt="Partners" className="w-full h-40 object-cover rounded-xl" loading="lazy" />
+              <img src="images/hackatl/DSC08259.webp" alt="Partners" className="w-full h-40 object-cover rounded-xl" loading="lazy" />
             </div>
           </div>
         </div>
@@ -297,9 +297,9 @@ function App() {
             </div>
           </div>
           <div className="mt-8 grid md:grid-cols-3 gap-6">
-            <img src="/images/hackatl/IMG_2623.JPG" alt="Past winner 1" className="w-full h-40 object-cover rounded-xl" loading="lazy" />
-            <img src="/images/hackatl/IMG_2619.JPG" alt="Past winner 2" className="w-full h-40 object-cover rounded-xl" loading="lazy" />
-            <img src="/images/hackatl/IMG_2622.jpg" alt="Past winner 3" className="w-full h-40 object-cover rounded-xl" loading="lazy" />
+            <img src="/images/hackatl/IMG_2623.webp" alt="Past winner 1" className="w-full h-40 object-cover rounded-xl" loading="lazy" />
+            <img src="/images/hackatl/IMG_2619.webp" alt="Past winner 2" className="w-full h-40 object-cover rounded-xl" loading="lazy" />
+            <img src="/images/hackatl/IMG_2622.webp" alt="Past winner 3" className="w-full h-40 object-cover rounded-xl" loading="lazy" />
           </div>
         </div>
       </section>
@@ -363,7 +363,7 @@ function App() {
                 Unlike code‑only hackathons, HackATL balances business rigor with technical build, mixing workshops, mentorship, and investor‑style pitching so teams leave with both a prototype and an executable plan.
               </p>
             </div>
-            <img src="/images/hackatl/IMG_2634.JPG" alt="HackATL experience" className="w-full h-64 md:h-auto object-cover rounded-3xl shadow-card" loading="lazy" />
+            <img src="/images/hackatl/IMG_2634.webp" alt="HackATL experience" className="w-full h-64 md:h-auto object-cover rounded-3xl shadow-card" loading="lazy" />
           </div>
         </div>
       </section>
@@ -405,7 +405,7 @@ function App() {
           <h3 className="text-3xl md:text-4xl font-extrabold text-indigo-900 text-center">Get Involved</h3>
           <div className="mt-10">
             <div className="bg-white rounded-2xl p-6 shadow-card ring-1 ring-[#0B3D91]/10 flex flex-col md:flex-row md:items-center md:gap-8">
-              <img src="/images/hackatl/mentor.jpg" alt="Mentor / Judge / Sponsor" className="w-full md:w-72 h-40 object-cover rounded-xl mb-4 md:mb-0" loading="lazy" />
+              <img src="/images/hackatl/mentor.webp" alt="Mentor / Judge / Sponsor" className="w-full md:w-72 h-40 object-cover rounded-xl mb-4 md:mb-0" loading="lazy" />
               <div className="flex-1 md:min-w-0">
                 <h4 className="text-xl font-bold text-indigo-900">Mentor / Judge / Sponsor</h4>
                 <p className="mt-2 text-indigo-900/80 leading-relaxed">Each year’s panel and sponsors vary; interested partners connect through Goizueta’s entrepreneurship center.</p>
