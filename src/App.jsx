@@ -138,7 +138,7 @@ function App() {
                 HackATL @ Emory — Build a Startup in 48 Hours
               </h2>
               <p className="mt-5 text-indigo-950/90 leading-relaxed">
-                HackATL is Emory University’s student-run business hackathon where hundreds of students from across the Southeast come together to turn ideas into real, pitch-ready startups in just 48 hours. It’s hosted at Goizueta Business School and features workshops, mentoring, and a final pitch to a panel of investors and industry leaders, with a prize pool of $13K+.
+                HackATL is Emory University’s student-run business hackathon where thousands of students from across the Southeast gather to turn ideas into prototypes, validate business models and pitch to judges in just 48 hours. Hosted at Goizueta Business School, the event features workshops, mentorship, and a final pitch to a panel of angel investors and industry leaders, with a prize pool of up to $13,000.
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
                 <span className="inline-flex items-center gap-2 rounded-full bg-[#e6efff] text-[#0B3D91] px-3 py-1 text-sm font-medium ring-1 ring-[#b9ccff]"><PinIcon /> Goizueta Business School</span>
@@ -164,23 +164,6 @@ function App() {
                 <p className="text-indigo-900 font-semibold">{c.t}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* WHAT IS HACKATL */}
-      <section className="relative bg-gradient-to-b from-white via-[#eaf2ff] to-[#eaf2ff]">
-        <div className="max-w-6xl mx-auto px-6 sm:px-8 py-16 md:py-24">
-          <h3 className="text-3xl md:text-4xl font-extrabold text-indigo-900">What is HackATL?</h3>
-          <div className="mt-6 grid md:grid-cols-3 gap-8">
-            <div className="md:col-span-2">
-              <p className="text-indigo-900/90 leading-relaxed">
-                HackATL is the region’s most prominent business hackathon—since 2013, it’s helped thousands of students build prototypes, validate business models, and pitch to judges, angels, and VCs. The event is powered by Emory Entrepreneurship & Venture Management (EEVM) and supported by Goizueta’s Center for Entrepreneurship & Innovation. Recent editions have partnered with InnovATL and the City of Atlanta.
-              </p>
-            </div>
-            <div>
-              <img src="images/hackatl/DSC08259.webp" alt="Partners" className="w-full h-40 object-cover rounded-xl" loading="lazy" />
-            </div>
           </div>
         </div>
       </section>
@@ -221,7 +204,7 @@ function App() {
             <div>
               <h3 className="text-3xl md:text-4xl font-extrabold text-indigo-900">What You Do</h3>
               <p className="mt-4 text-indigo-900/90 leading-relaxed">
-                Build a venture from zero to pitch: define a customer problem, prototype a solution, craft a business model, and present to judges. Teams are intentionally interdisciplinary—hackers (builders), hustlers (business), and hipsters (design/UX)—so non-coders and coders alike add value.
+                Take a venture from concept to pitch: identify a customer problem, develop a solution, design a business model, and present to judges. Teams are intentionally interdisciplinary, bringing together builders, business strategists, and designers so that everyone, whether coding or not, contributes to the idea.
               </p>
               <ul className="mt-6 space-y-3 text-indigo-900/90">
                 <li className="flex items-center gap-3"><BulbIcon /> <span>Problem discovery and validation</span></li>
@@ -353,21 +336,6 @@ function App() {
         </div>
       </section>
 
-      {/* WHY DIFFERENT */}
-      <section className="relative bg-gradient-to-b from-white via-[#eaf3ff] to-[#e3eeff]">
-        <div className="max-w-6xl mx-auto px-6 sm:px-8 py-16 md:py-24">
-          <div className="grid md:grid-cols-3 gap-8 items-stretch">
-            <div className="md:col-span-2 bg-[#0B3D91] text-white rounded-3xl p-10 shadow-card">
-              <h3 className="text-3xl md:text-4xl font-extrabold">Why HackATL is Different</h3>
-              <p className="mt-4 text-indigo-100 leading-relaxed">
-                Unlike code‑only hackathons, HackATL balances business rigor with technical build, mixing workshops, mentorship, and investor‑style pitching so teams leave with both a prototype and an executable plan.
-              </p>
-            </div>
-            <img src="/images/hackatl/IMG_2634.webp" alt="HackATL experience" className="w-full h-64 md:h-auto object-cover rounded-3xl shadow-card" loading="lazy" />
-          </div>
-        </div>
-      </section>
-
       {/* FAQS */}
       <section className="relative bg-gradient-to-b from-[#e3eeff] via-[#f2f7ff] to-white">
         <div className="max-w-4xl mx-auto px-6 sm:px-8 py-16 md:py-24">
@@ -381,7 +349,9 @@ function App() {
               {q:'What do winners receive?', a:'Cash awards (historically $13K+ across prizes) and access to Emory’s entrepreneurship ecosystem; standout teams often continue via campus programs.'},
               {q:'What are past themes?', a:'Examples include The Great Hacksby (2021) and a Smart Cities prompt (2024).'},
               {q:'Is it only for Emory students?', a:'No—HackATL regularly draws students from many universities across the Southeast (and beyond).'},
-              {q:'Where is it on campus?', a:'Goizueta Business School, Emory University (Atlanta).'},
+              {q:'What do I need for the event?', a:"We recommend bringing a laptop, charger, headphones, and anything else you'll need over the weekend. We'll provide meals, snacks, swag, and good vibes."},
+              {q:'Where is it on campus?', a:'Goizueta Business School.'},
+              {q:'I have more questions.', a:'Contact us at contact@eevm.org.'},
             ].map((item, i) => (
               <details key={i} className="group p-6">
                 <summary className="flex cursor-pointer list-none items-center justify-between text-indigo-900 font-semibold">{item.q}
