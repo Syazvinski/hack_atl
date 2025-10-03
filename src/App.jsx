@@ -68,12 +68,13 @@ function App() {
   return (
     <div className="min-h-screen w-full bg-white">
       {/* HERO */}
-      <section className="relative overflow-hidden min-h-[100svh] flex items-center">
-        <div className="absolute inset-0 bg-gradient-to-tr from-[#001A3A] via-[#0B3D91] to-[#0B3D91]" />
+      <section className="hero-space relative overflow-hidden min-h-[100svh] flex items-center">
+        <div className="hero-space-glow" aria-hidden />
+        <div className="hero-stars" aria-hidden />
 
         {/* Left offset full-height dark circle */}
         <div
-          className="pointer-events-none absolute left-0 top-1/2 -translate-x-[35%] -translate-y-1/2 w-[110vw] h-[110vw] sm:w-[90vw] sm:h-[90vw] md:w-[92vh] md:h-[92vh] bg-[#001A3A] rounded-full shadow-2xl"
+          className="pointer-events-none absolute left-0 top-1/2 -translate-x-[35%] -translate-y-1/2 w-[110vw] h-[110vw] sm:w-[90vw] sm:h-[90vw] md:w-[92vh] md:h-[92vh] bg-[#020b24]/90 rounded-full shadow-[0_0_120px_rgba(59,130,246,0.25)]"
           aria-hidden
         />
 

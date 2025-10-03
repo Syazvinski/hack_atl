@@ -8,3 +8,93 @@ body { @apply antialiased text-slate-900; }
 .img-placeholder {
   @apply bg-slate-200 text-slate-500 flex items-center justify-center font-medium;
 }
+
+/* Space-themed hero backdrop with layered starfields */
+.hero-space {
+  position: relative;
+  background-image:
+    radial-gradient(circle at 18% 22%, rgba(103, 232, 249, 0.25), transparent 55%),
+    radial-gradient(circle at 85% 18%, rgba(244, 114, 182, 0.18), transparent 45%),
+    radial-gradient(circle at 72% 78%, rgba(96, 165, 250, 0.16), transparent 50%),
+    linear-gradient(120deg, #020617 12%, #0b1e39 45%, #132867 75%, #1e3a8a 100%);
+  color: inherit;
+}
+
+.hero-space::before,
+.hero-space::after {
+  content: '';
+  position: absolute;
+  inset: -10% -15%;
+  pointer-events: none;
+  background-repeat: repeat;
+  opacity: 0.55;
+}
+
+.hero-space::before {
+  background-image:
+    radial-gradient(1px 1px at 20px 20px, rgba(255, 255, 255, 0.9) 50%, transparent 60%),
+    radial-gradient(1px 1px at 70px 60px, rgba(148, 163, 184, 0.7) 50%, transparent 60%),
+    radial-gradient(1px 1px at 110px 90px, rgba(255, 255, 255, 0.8) 50%, transparent 60%),
+    radial-gradient(1px 1px at 160px 40px, rgba(226, 232, 240, 0.75) 50%, transparent 60%);
+  background-size: 140px 140px, 200px 200px, 170px 170px, 220px 220px;
+  animation: hero-stars-drift 28s linear infinite;
+}
+
+.hero-space::after {
+  opacity: 0.25;
+  background-image:
+    radial-gradient(1px 1px at 40px 30px, rgba(226, 232, 240, 0.9) 40%, transparent 60%),
+    radial-gradient(1px 1px at 120px 120px, rgba(248, 250, 252, 0.75) 40%, transparent 60%),
+    radial-gradient(2px 2px at 200px 80px, rgba(148, 163, 184, 0.65) 40%, transparent 60%);
+  background-size: 180px 180px, 260px 260px, 240px 240px;
+  animation: hero-stars-drift 36s linear infinite reverse;
+}
+
+.hero-space-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 22% 35%, rgba(59, 130, 246, 0.35), transparent 55%),
+    radial-gradient(circle at 78% 48%, rgba(16, 185, 129, 0.22), transparent 50%);
+  mix-blend-mode: screen;
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+.hero-stars {
+  position: absolute;
+  inset: -5% -10%;
+  background-image:
+    radial-gradient(1.5px 1.5px at 15% 20%, rgba(255, 255, 255, 0.95) 45%, transparent 55%),
+    radial-gradient(2px 2px at 68% 35%, rgba(148, 197, 255, 0.85) 45%, transparent 55%),
+    radial-gradient(1.5px 1.5px at 40% 72%, rgba(248, 250, 252, 0.9) 45%, transparent 55%),
+    radial-gradient(3px 3px at 82% 68%, rgba(244, 114, 182, 0.65) 45%, transparent 55%),
+    radial-gradient(1px 1px at 25% 58%, rgba(148, 163, 184, 0.8) 45%, transparent 55%),
+    radial-gradient(2.5px 2.5px at 5% 78%, rgba(96, 165, 250, 0.75) 45%, transparent 55%),
+    radial-gradient(1px 1px at 55% 10%, rgba(255, 255, 255, 0.9) 45%, transparent 55%),
+    radial-gradient(2px 2px at 90% 28%, rgba(226, 232, 240, 0.85) 45%, transparent 55%);
+  background-size: 180px 180px, 220px 220px, 210px 210px, 260px 260px, 190px 190px, 240px 240px, 200px 200px, 230px 230px;
+  animation: hero-stars-twinkle 12s ease-in-out infinite alternate;
+  mix-blend-mode: screen;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+@keyframes hero-stars-twinkle {
+  from {
+    opacity: 0.35;
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    opacity: 0.85;
+    transform: translate3d(8px, -6px, 0);
+  }
+}
+
+@keyframes hero-stars-drift {
+  from {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  to {
+    transform: translate3d(20px, -40px, 0) rotate(1deg);
+  }
+}
