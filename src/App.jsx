@@ -1,6 +1,7 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Analytics } from '@vercel/analytics/react'
 import { EVENT } from './data/event'
+import { EVENT_SCHEDULE } from './data/schedule'
 
 function Placeholder({ className = '', children = 'Image Placeholder' }) {
   return (
@@ -73,6 +74,9 @@ function App() {
   const photoRef = useRef(null)
   const contentRef = useRef(null)
 
+  const [activeDay, setActiveDay] = useState(null)
+  const [openFaqs, setOpenFaqs] = useState(() => new Set())
+
   useEffect(() => {
     const hero = heroRef.current
     if (!hero) return
@@ -129,6 +133,35 @@ function App() {
       window.removeEventListener('resize', handleScroll)
     }
   }, [])
+
+  const toggleDay = (dayName) => {
+    setActiveDay((current) => (current === dayName ? null : dayName))
+  }
+
+  const toggleFaq = (index) => {
+    setOpenFaqs((current) => {
+      const next = new Set(current)
+      if (next.has(index)) {
+        next.delete(index)
+      } else {
+        next.add(index)
+      }
+      return next
+    })
+  }
+
+  const FAQS = [
+    {q:'Who can apply?', a:'Students (undergrad/grad) from Emory and other universities. Multidisciplinary teams are encouraged; solo applicants can find teammates at kickoff.'},
+    {q:'Do I have to code?', a:'No. Teams need builders, designers, and business leads. Non‑technical contributors are essential.'},
+    {q:'How big are teams?', a:'Teams form at the event; most groups mix 3–5 people across skills (final team sizes and rules announced at kickoff).'},
+    {q:'What support will I get?', a:'Workshops, mentor hours, and structured feedback sessions run throughout Saturday; Sunday focuses on pitch prep.'},
+    {q:'What do winners receive?', a:'Cash awards (historically $13K+ across prizes) and access to Emory’s entrepreneurship ecosystem; standout teams often continue via campus programs.'},
+    {q:'What are past themes?', a:'Examples include The Great Hacksby (2021) and a Smart Cities prompt (2024).'},
+    {q:'Is it only for Emory students?', a:'No—HackATL regularly draws students from many universities across the Southeast (and beyond).'},
+    {q:'Where is it on campus?', a:'Goizueta Business School, Emory University (Atlanta).'},
+    {q:'What do I need for the event?', a:"We recommend bringing a laptop, charger, headphones, and anything else you'll need over the weekend. We'll provide meals, snacks, swag, and good vibes."},
+    {q:'I have more questions.', a:'Contact us at contact@eevm.org.'},
+  ]
 
   return (
     <div className="min-h-screen w-full bg-white">
@@ -235,34 +268,92 @@ function App() {
         </div>
       </section>
 
-      {/* WEEKEND FLOW */}
+      {/* WHAT IS HACKATL */}
+      <section className="relative bg-gradient-to-b from-white via-[#eaf2ff] to-[#eaf2ff]">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 py-16 md:py-24">
+          <h3 className="text-3xl md:text-4xl font-extrabold text-indigo-900">What is HackATL?</h3>
+          <div className="mt-6 grid md:grid-cols-3 gap-8">
+            <div className="md:col-span-2">
+              <p className="text-indigo-900/90 leading-relaxed">
+                HackATL is the region’s most prominent business hackathon—since 2013, it’s helped thousands of students build prototypes, validate business models, and pitch to judges, angels, and VCs. The event is powered by Emory Entrepreneurship & Venture Management (EEVM) and supported by Goizueta’s Center for Entrepreneurship & Innovation. Recent editions have partnered with InnovATL and the City of Atlanta.
+              </p>
+            </div>
+            <div>
+              <img src="/images/hackatl/partners.webp" alt="Partners" className="w-full h-40 object-cover rounded-xl" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* WEEKEND SCHEDULE */}
       <section className="relative bg-gradient-to-b from-[#eaf2ff] via-[#e6efff] to-[#eef6ff]">
         <div className="max-w-6xl mx-auto px-6 sm:px-8 py-16 md:py-24">
-          <h3 className="text-3xl md:text-4xl font-extrabold text-indigo-900">How it Works</h3>
-          <p className="mt-3 text-indigo-900/80">Weekend flow at a glance</p>
-          <div className="mt-8 grid md:grid-cols-3 gap-6">
-            {[{
-              t:'Friday',
-              d:'Kickoff, theme reveal, team formation, ideation.'
-            },{
-              t:'Saturday',
-              d:'Heads-down building plus workshops and mentor office hours.'
-            },{
-              t:'Sunday',
-              d:'Pitch polish, semifinals, and finale on stage to judges.'
-            }].map((s,i)=> (
-              <div key={i} className="bg-white rounded-2xl p-6 shadow-card ring-1 ring-[#0B3D91]/10">
-                <div className="flex items-center gap-4">
-                  <CalendarIcon label={s.t} />
-                  <h4 className="sr-only">{s.t}</h4>
+          <div className="max-w-3xl">
+            <h3 className="text-3xl md:text-4xl font-extrabold text-indigo-900">Weekend Schedule</h3>
+            <p className="mt-3 text-indigo-900/80 leading-relaxed">
+              The full run of show for HackATL {EVENT.year}. Expand each day to view meal windows, workshops, mentor
+              touchpoints, and submission deadlines.
+            </p>
+          </div>
+          <div className="mt-8 space-y-4">
+            {EVENT_SCHEDULE.map((day) => (
+              <div key={day.day} className="rounded-3xl bg-white p-5 md:p-6 shadow-card ring-1 ring-[#0B3D91]/10">
+                <button
+                  type="button"
+                  onClick={() => toggleDay(day.day)}
+                  aria-expanded={activeDay === day.day}
+                  className="flex w-full items-center justify-between gap-4"
+                >
+                  <span className="flex items-center gap-4 text-left">
+                    <CalendarIcon label={day.day} />
+                    <span>
+                      <h4 className="text-2xl font-extrabold text-indigo-900">{day.day}</h4>
+                      <p className="mt-1 text-indigo-900/70 text-sm leading-relaxed">{day.summary}</p>
+                    </span>
+                  </span>
+                  <span
+                    aria-hidden
+                    className={`flex h-10 w-10 items-center justify-center rounded-full text-xl font-bold transition-colors ${
+                      activeDay === day.day ? 'bg-[#0B3D91] text-white' : 'bg-[#eef4ff] text-[#0B3D91]'
+                    }`}
+                  >
+                    {activeDay === day.day ? '−' : '+'}
+                  </span>
+                </button>
+                <div
+                  className={`grid transition-[grid-template-rows] duration-300 ease-[cubic-bezier(0.33,1,0.68,1)] ${
+                    activeDay === day.day ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
+                  }`}
+                >
+                  <div className="overflow-hidden">
+                    <ul
+                      className={`space-y-3 transition-all duration-300 ease-[cubic-bezier(0.33,1,0.68,1)] transform ${
+                        activeDay === day.day
+                          ? 'mt-5 opacity-100 translate-y-0'
+                          : 'mt-0 opacity-0 -translate-y-1'
+                      }`}
+                    >
+                      {day.items.map((item, index) => (
+                        <li
+                          key={`${day.day}-${index}`}
+                          className="rounded-2xl border border-[#d4e1ff] bg-[#f6f9ff] p-4 shadow-sm"
+                        >
+                          <div className="text-xs font-semibold uppercase tracking-wide text-[#0B3D91]">{item.time}</div>
+                          <div className="mt-1 text-indigo-900 font-semibold leading-snug">{item.title}</div>
+                          {item.notes && (
+                            <p className="mt-1 text-indigo-900/70 text-sm leading-relaxed">{item.notes}</p>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-                <p className="mt-4 text-indigo-900/80 leading-relaxed">{s.d}</p>
               </div>
             ))}
           </div>
-          <p className="mt-8 text-indigo-900/80">Expect hands-on guidance, cross-campus networking, and real feedback focused on both technical and business execution.</p>
         </div>
       </section>
+
 
       {/* WHAT YOU DO */}
       <section className="relative bg-gradient-to-b from-[#eef5ff] via-white to-white">
@@ -431,26 +522,44 @@ function App() {
         <div className="max-w-4xl mx-auto px-6 sm:px-8 py-16 md:py-24">
           <h3 className="text-3xl md:text-4xl font-extrabold text-indigo-900 text-center">FAQs</h3>
           <div className="mt-8 divide-y divide-[#c0cff1] rounded-2xl bg-white shadow-card ring-1 ring-[#0B3D91]/10">
-            {[
-              {q:'Who can apply?', a:'Students (undergrad/grad) from Emory and other universities. Multidisciplinary teams are encouraged; solo applicants can find teammates at kickoff.'},
-              {q:'Do I have to code?', a:'No. Teams need builders, designers, and business leads. Non‑technical contributors are essential.'},
-              {q:'How big are teams?', a:'Teams form at the event; most groups mix 3–5 people across skills (final team sizes and rules announced at kickoff).'},
-              {q:'What support will I get?', a:'Workshops, mentor hours, and structured feedback sessions run throughout Saturday; Sunday focuses on pitch prep.'},
-              {q:'What do winners receive?', a:'Cash awards (historically $13K+ across prizes) and access to Emory’s entrepreneurship ecosystem; standout teams often continue via campus programs.'},
-              {q:'What are past themes?', a:'Examples include The Great Hacksby (2021) and a Smart Cities prompt (2024).'},
-              {q:'Is it only for Emory students?', a:'No—HackATL regularly draws students from many universities across the Southeast (and beyond).'},
-              {q:'What do I need for the event?', a:"We recommend bringing a laptop, charger, headphones, and anything else you'll need over the weekend. We'll provide meals, snacks, swag, and good vibes."},
-              {q:'Where is it on campus?', a:'Goizueta Business School.'},
-              {q:'I have more questions.', a:'Contact us at contact@eevm.org.'},
-            ].map((item, i) => (
-              <details key={i} className="group p-6">
-                <summary className="flex cursor-pointer list-none items-center justify-between text-indigo-900 font-semibold">{item.q}
-                  <span className="ml-4 text-indigo-400 group-open:hidden">+</span>
-                  <span className="ml-4 text-indigo-400 hidden group-open:inline">−</span>
-                </summary>
-                <p className="mt-3 text-indigo-900/80 leading-relaxed">{item.a}</p>
-              </details>
-            ))}
+            {FAQS.map((item, i) => {
+              const isOpen = openFaqs.has(i)
+              return (
+                <div key={i} className="p-6">
+                  <button
+                    type="button"
+                    onClick={() => toggleFaq(i)}
+                    aria-expanded={isOpen}
+                    className="flex w-full items-center justify-between text-left text-indigo-900 font-semibold"
+                  >
+                    <span>{item.q}</span>
+                    <span
+                      aria-hidden
+                      className={`ml-4 flex h-9 w-9 items-center justify-center rounded-full text-lg font-bold transition-colors ${
+                        isOpen ? 'bg-[#0B3D91] text-white' : 'bg-[#eef4ff] text-[#0B3D91]'
+                      }`}
+                    >
+                      {isOpen ? '−' : '+'}
+                    </span>
+                  </button>
+                  <div
+                    className={`grid transition-[grid-template-rows] duration-300 ease-[cubic-bezier(0.33,1,0.68,1)] ${
+                      isOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
+                    }`}
+                  >
+                    <div className="overflow-hidden">
+                      <p
+                        className={`text-indigo-900/80 leading-relaxed transition-all duration-300 ease-[cubic-bezier(0.33,1,0.68,1)] transform ${
+                          isOpen ? 'mt-3 opacity-100 translate-y-0' : 'mt-0 opacity-0 -translate-y-1'
+                        }`}
+                      >
+                        {item.a}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>
