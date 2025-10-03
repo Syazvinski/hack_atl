@@ -79,7 +79,7 @@ function App() {
 
         {/* Top-right circular group photo matching full-height footprint */}
         <div className="pointer-events-none absolute top-1/2 -translate-y-1/2 right-2 sm:right-8 md:right-16 w-[70vw] h-[70vw] sm:w-[60vw] sm:h-[60vw] md:w-[65vh] md:h-[65vh] lg:w-[75vh] lg:h-[75vh] xl:w-[80vh] xl:h-[80vh] rounded-full overflow-hidden border-[10px] border-white/40 shadow-2xl">
-          <img src="https://www.emorybusiness.com/wp-content/uploads/2021/11/HACKAtl-team-scaled.jpg" alt="HackATL team group" className="w-full h-full object-cover" />
+          <img src="/images/hackatl/IMG_2634.webp" alt="HackATL team group" className="w-full h-full object-cover" />
         </div>
 
         <div className="relative w-full max-w-6xl mx-auto px-6 sm:px-8 py-8 sm:py-12 md:py-16 lg:py-24">
@@ -332,6 +332,21 @@ function App() {
                 <img src="https://upload.wikimedia.org/wikipedia/commons/8/80/Seal_of_Atlanta.png" alt="City of Atlanta" className="h-16 w-auto" />
               </a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* WHY DIFFERENT */}
+      <section className="relative bg-gradient-to-b from-white via-[#eaf3ff] to-[#e3eeff]">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 py-16 md:py-24">
+          <div className="grid md:grid-cols-3 gap-8 items-stretch">
+            <div className="md:col-span-2 bg-[#0B3D91] text-white rounded-3xl p-10 shadow-card">
+              <h3 className="text-3xl md:text-4xl font-extrabold">Why HackATL is Different</h3>
+              <p className="mt-4 text-indigo-100 leading-relaxed">
+                Unlike code‑only hackathons, HackATL balances business rigor with technical build, mixing workshops, mentorship, and investor‑style pitching so teams leave with both a prototype and an executable plan.
+              </p>
+            </div>
+            <img src="/images/hackatl/IMG_2634.webp" alt="HackATL experience" className="w-full h-64 md:h-auto object-cover rounded-3xl shadow-card" loading="lazy" />
           </div>
         </div>
       </section>
