@@ -307,22 +307,30 @@ function App() {
       {/* JUDGING & PRIZES */}
       <section className="relative bg-gradient-to-b from-[#e0eeff] via-white to-[#eaf3ff]">
         <div className="max-w-6xl mx-auto px-6 sm:px-8 py-16 md:py-24">
-          <div className="grid md:grid-cols-3 gap-8 items-stretch">
-            <div className="md:col-span-2 bg-white rounded-2xl p-8 shadow-card ring-1 ring-[#0B3D91]/10">
-              <h3 className="text-3xl md:text-4xl font-extrabold text-indigo-900">Judging & Prizes</h3>
-              <p className="mt-4 text-indigo-900/90 leading-relaxed">
-                A diverse judging panel—investors, entrepreneurs, professors, and civic leaders—evaluates teams on problem fit, product, and go‑to‑market.
-              </p>
-              <ul className="mt-5 space-y-2 text-indigo-900/90">
-                <li className="flex items-center gap-2"><TrophyIcon className="w-4 h-4" /> <span>Category and overall awards</span></li>
-                <li className="flex items-center gap-2"><Icon><path d="M5 12l4 4L19 6" /></Icon> <span>Real feedback from experts</span></li>
-                <li className="flex items-center gap-2"><Icon><circle cx="12" cy="12" r="9" /><path d="M12 7v10" /><path d="M7 12h10" /></Icon> <span>Access to Emory’s venture ecosystem</span></li>
-              </ul>
-            </div>
-            <div className="bg-[#0B3D91] text-white rounded-2xl p-8 shadow-card flex flex-col justify-center">
-              <div className="text-5xl font-extrabold">$13K+</div>
-              <div className="mt-2 text-indigo-100">Prize pool</div>
-              <img src="/images/hackatl/trophy.webp" alt="Trophy" className="mt-6 w-full h-24 object-cover rounded-xl" loading="lazy" />
+          <div className="space-y-8">
+            <div className="bg-white rounded-2xl p-10 shadow-card ring-1 ring-[#0B3D91]/10">
+              <div className="md:flex md:items-start md:gap-10">
+                <div className="md:flex-1">
+                  <h3 className="text-3xl md:text-4xl font-extrabold text-indigo-900">Meet the Judges</h3>
+                  <p className="mt-2 text-teal-600 font-semibold tracking-wide uppercase">Prize Money • Up to $13K</p>
+                  <p className="mt-4 text-indigo-900/90 leading-relaxed">
+                    A diverse judging panel—investors, entrepreneurs, professors, and civic leaders—evaluates teams on problem fit, product, and go‑to‑market.
+                  </p>
+                  <ul className="mt-5 space-y-2 text-indigo-900/90">
+                    <li className="flex items-center gap-2"><TrophyIcon className="w-4 h-4" /> <span>Category and overall awards</span></li>
+                    <li className="flex items-center gap-2"><Icon><path d="M5 12l4 4L19 6" /></Icon> <span>Real feedback from experts</span></li>
+                    <li className="flex items-center gap-2"><Icon><circle cx="12" cy="12" r="9" /><path d="M12 7v10" /><path d="M7 12h10" /></Icon> <span>Access to Emory’s venture ecosystem</span></li>
+                  </ul>
+                </div>
+                <div className="mt-8 md:mt-0 w-full h-56 md:w-[28rem] md:h-60 rounded-xl overflow-hidden shadow-card ring-1 ring-[#0B3D91]/10">
+                  <img
+                    src="/images/hackatl/IMG_2578.webp"
+                    alt="HackATL judges listening to pitches"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
