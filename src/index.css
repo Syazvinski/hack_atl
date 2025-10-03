@@ -61,6 +61,10 @@ body { @apply antialiased text-slate-900; }
   transform: translate3d(0, 0, 0);
   will-change: transform;
   transition: transform 0.3s ease-out;
+  animation:
+    hero-glow-pulse 9s ease-in-out infinite alternate,
+    hero-glow-glimmer 14s linear infinite,
+    hero-glow-drift 48s linear infinite;
 }
 
 .hero-stars {
@@ -76,7 +80,10 @@ body { @apply antialiased text-slate-900; }
     radial-gradient(1px 1px at 55% 10%, rgba(255, 255, 255, 0.9) 45%, transparent 55%),
     radial-gradient(2px 2px at 90% 28%, rgba(226, 232, 240, 0.85) 45%, transparent 55%);
   background-size: 180px 180px, 220px 220px, 210px 210px, 260px 260px, 190px 190px, 240px 240px, 200px 200px, 230px 230px;
-  animation: hero-stars-twinkle 12s ease-in-out infinite alternate;
+  animation:
+    hero-stars-twinkle 9s ease-in-out infinite alternate,
+    hero-stars-glimmer 14s linear infinite,
+    hero-stars-drift 48s linear infinite;
   mix-blend-mode: screen;
   opacity: 0.7;
   pointer-events: none;
@@ -94,12 +101,72 @@ body { @apply antialiased text-slate-900; }
   }
 }
 
+@keyframes hero-glow-pulse {
+  0% {
+    opacity: 0.52;
+    filter: drop-shadow(0 0 0 rgba(59, 130, 246, 0));
+  }
+  50% {
+    opacity: 0.82;
+    filter: drop-shadow(0 0 14px rgba(59, 130, 246, 0.28));
+  }
+  100% {
+    opacity: 0.52;
+    filter: drop-shadow(0 0 0 rgba(59, 130, 246, 0));
+  }
+}
+
+@keyframes hero-glow-glimmer {
+  0% {
+    filter: drop-shadow(0 0 0 rgba(16, 185, 129, 0));
+  }
+  40% {
+    filter: drop-shadow(0 0 18px rgba(16, 185, 129, 0.32));
+  }
+  70% {
+    filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.24));
+  }
+  100% {
+    filter: drop-shadow(0 0 0 rgba(16, 185, 129, 0));
+  }
+}
+
+@keyframes hero-glow-drift {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-14px, 12px, 0) scale(1.015);
+  }
+  to {
+    transform: translate3d(-28px, 24px, 0) scale(1.03);
+  }
+}
+
+@keyframes hero-stars-glimmer {
+  0% {
+    filter: drop-shadow(0 0 0 rgba(148, 197, 255, 0.0));
+  }
+  40% {
+    filter: drop-shadow(0 0 6px rgba(148, 197, 255, 0.35));
+  }
+  70% {
+    filter: drop-shadow(0 0 4px rgba(59, 130, 246, 0.25));
+  }
+  100% {
+    filter: drop-shadow(0 0 0 rgba(148, 197, 255, 0.0));
+  }
+}
+
 @keyframes hero-stars-drift {
   from {
     transform: translate3d(0, 0, 0) rotate(0deg);
   }
+  50% {
+    transform: translate3d(18px, -30px, 0) rotate(0.6deg);
+  }
   to {
-    transform: translate3d(20px, -40px, 0) rotate(1deg);
+    transform: translate3d(36px, -60px, 0) rotate(1.2deg);
   }
 }
 
