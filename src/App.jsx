@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import { Analytics } from '@vercel/analytics/react'
 import { EVENT } from './data/event'
 
@@ -65,25 +66,90 @@ const RocketIcon = (props) => (
 )
 
 function App() {
+  const heroRef = useRef(null)
+  const glowRef = useRef(null)
+  const starsRef = useRef(null)
+  const circleRef = useRef(null)
+  const photoRef = useRef(null)
+  const contentRef = useRef(null)
+
+  useEffect(() => {
+    const hero = heroRef.current
+    if (!hero) return
+
+    let frameId = null
+
+    const applyTransforms = () => {
+      frameId = null
+      const heroEl = heroRef.current
+      if (!heroEl) return
+
+      const rect = heroEl.getBoundingClientRect()
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0
+      const maxTravel = heroEl.offsetHeight + viewportHeight
+      const rawOffset = -rect.top
+      const clampedOffset = Math.max(0, Math.min(rawOffset, maxTravel))
+
+      if (glowRef.current) {
+        glowRef.current.style.transform = `translate3d(0, ${clampedOffset * 0.18}px, 0)`
+      }
+
+      if (starsRef.current) {
+        starsRef.current.style.transform = `translate3d(0, ${clampedOffset * 0.08}px, 0)`
+      }
+
+      if (circleRef.current) {
+        circleRef.current.style.transform = `translate3d(0, ${clampedOffset * -0.04}px, 0)`
+      }
+
+      if (photoRef.current) {
+        photoRef.current.style.transform = `translate3d(0, ${clampedOffset * 0.1}px, 0)`
+      }
+
+      if (contentRef.current) {
+        contentRef.current.style.transform = `translate3d(0, ${clampedOffset * -0.05}px, 0)`
+      }
+    }
+
+    const handleScroll = () => {
+      if (frameId === null) {
+        frameId = window.requestAnimationFrame(applyTransforms)
+      }
+    }
+
+    applyTransforms()
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    window.addEventListener('resize', handleScroll)
+
+    return () => {
+      if (frameId !== null) {
+        window.cancelAnimationFrame(frameId)
+      }
+      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('resize', handleScroll)
+    }
+  }, [])
+
   return (
     <div className="min-h-screen w-full bg-white">
       {/* HERO */}
-      <section className="hero-space relative overflow-hidden min-h-[100svh] flex items-center">
-        <div className="hero-space-glow" aria-hidden />
-        <div className="hero-stars" aria-hidden />
+      <section ref={heroRef} className="hero-space relative overflow-hidden min-h-[100svh] flex items-center">
+        <div ref={glowRef} className="hero-space-glow" aria-hidden />
+        <div ref={starsRef} className="hero-stars" aria-hidden />
 
         {/* Left offset full-height dark circle */}
-        <div
-          className="pointer-events-none absolute left-0 top-1/2 -translate-x-[35%] -translate-y-1/2 w-[110vw] h-[110vw] sm:w-[90vw] sm:h-[90vw] md:w-[92vh] md:h-[92vh] bg-[#020b24]/90 rounded-full shadow-[0_0_120px_rgba(59,130,246,0.25)]"
-          aria-hidden
-        />
-
-        {/* Top-right circular group photo matching full-height footprint */}
-        <div className="pointer-events-none absolute top-1/2 -translate-y-1/2 right-2 sm:right-8 md:right-16 w-[70vw] h-[70vw] sm:w-[60vw] sm:h-[60vw] md:w-[65vh] md:h-[65vh] lg:w-[75vh] lg:h-[75vh] xl:w-[80vh] xl:h-[80vh] rounded-full overflow-hidden border-[10px] border-white/40 shadow-2xl">
-          <img src="/images/hackatl/IMG_2634.webp" alt="HackATL team group" className="w-full h-full object-cover" />
+        <div ref={circleRef} className="hero-parallax-circle pointer-events-none absolute left-0 top-1/2" aria-hidden>
+          <div className="-translate-x-[35%] -translate-y-1/2 w-[110vw] h-[110vw] sm:w-[90vw] sm:h-[90vw] md:w-[92vh] md:h-[92vh] bg-[#020b24]/90 rounded-full shadow-[0_0_120px_rgba(59,130,246,0.25)]" />
         </div>
 
-        <div className="relative w-full max-w-6xl mx-auto px-6 sm:px-8 py-8 sm:py-12 md:py-16 lg:py-24">
+        {/* Top-right circular group photo matching full-height footprint */}
+        <div ref={photoRef} className="hero-parallax-photo pointer-events-none absolute top-1/2 right-2 sm:right-8 md:right-16">
+          <div className="-translate-y-1/2 w-[70vw] h-[70vw] sm:w-[60vw] sm:h-[60vw] md:w-[65vh] md:h-[65vh] lg:w-[75vh] lg:h-[75vh] xl:w-[80vh] xl:h-[80vh] rounded-full overflow-hidden border-[10px] border-white/40 shadow-2xl">
+            <img src="/images/hackatl/IMG_2634.webp" alt="HackATL team group" className="w-full h-full object-cover" />
+          </div>
+        </div>
+
+        <div ref={contentRef} className="hero-parallax-content relative w-full max-w-6xl mx-auto px-6 sm:px-8 py-8 sm:py-12 md:py-16 lg:py-24">
           {/* Logos row positioned inside the left circle */}
           <div className="relative z-10 mt-4 sm:mt-8 md:mt-12 lg:mt-16 w-full max-w-xl sm:max-w-2xl lg:max-w-[680px] lg:-ml-16 xl:-ml-24">
             <div className="flex items-center gap-4 md:gap-6 lg:gap-8">
