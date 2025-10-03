@@ -74,7 +74,7 @@ function App() {
   const photoRef = useRef(null)
   const contentRef = useRef(null)
 
-  const [activeDay, setActiveDay] = useState(EVENT_SCHEDULE[0]?.day ?? null)
+  const [activeDay, setActiveDay] = useState(null)
   const [openFaqs, setOpenFaqs] = useState(() => new Set())
 
   useEffect(() => {
