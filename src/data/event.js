@@ -1,7 +1,22 @@
 export const EVENT = {
-  year: 2025,
-  dates: 'October 17-19, 2025',
-  locationShort: 'Goizueta Business School, Atlanta, GA',
-  locationFull: 'Goizueta Business School, 1300 Clifton Rd NE, Atlanta, GA 30322',
+  year: 2026,
+  dates: 'October 16-18, 2026',
+  locationShort: 'Emory University, Atlanta, GA',
+  locationFull: 'Emory University, Atlanta, Georgia',
+  theme: {
+    label: 'Theme Announcement',
+    title: 'Beyond Intelligence',
+    subtitle: 'Designing the World After AI',
+    tagline: 'The World After AI',
+  },
+  links: {
+    registration:
+      'https://docs.google.com/forms/d/e/1FAIpQLSfvLt2ExtqgtWa8NWj25WveqK2UzSRW7Ni6b6NLpv08r3lk7A/viewform',
+    sponsorPacket:
+      'https://f005.backblazeb2.com/file/syazvin/HackATL+Corporate+Packet+2025.pdf',
+    eevm: 'https://www.eevm.org/',
+    goizueta:
+      'https://goizueta.emory.edu/faculty/entrepreneurship-innovation/programs',
+    innovatl: 'https://innovatl2025.com/',
+  },
 }
-
