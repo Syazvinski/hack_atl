@@ -1,7 +1,94 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Analytics } from '@vercel/analytics/react'
 import { EVENT } from './data/event'
 import { EVENT_SCHEDULE } from './data/schedule'
+
+const COUNTDOWN_UNITS = [
+  { key: 'days', label: 'Days' },
+  { key: 'hours', label: 'Hours' },
+  { key: 'minutes', label: 'Minutes' },
+  { key: 'seconds', label: 'Seconds' },
+]
+
+function getCountdownParts(targetMs) {
+  const diff = Math.max(0, targetMs - Date.now())
+  const totalSeconds = Math.floor(diff / 1000)
+  return {
+    days: Math.floor(totalSeconds / 86400),
+    hours: Math.floor((totalSeconds % 86400) / 3600),
+    minutes: Math.floor((totalSeconds % 3600) / 60),
+    seconds: totalSeconds % 60,
+    done: diff === 0,
+  }
+}
+
+function pad2(n) {
+  return String(n).padStart(2, '0')
+}
+
+function CountdownHero() {
+  const targetMs = new Date(EVENT.startsAt).getTime()
+  const [parts, setParts] = useState(() => getCountdownParts(targetMs))
+
+  useEffect(() => {
+    const tick = () => setParts(getCountdownParts(targetMs))
+    tick()
+    const id = setInterval(tick, 1000)
+    return () => clearInterval(id)
+  }, [targetMs])
+
+  return (
+    <section
+      className="countdown-hero relative overflow-hidden"
+      aria-labelledby="countdown-heading"
+    >
+      <div className="countdown-hero-ambient" aria-hidden>
+        <div className="countdown-hero-mesh" />
+        <div className="countdown-hero-line" />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-5xl px-6 sm:px-8 py-20 md:py-28 text-center">
+        <p className="countdown-kicker">HackATL {EVENT.year}</p>
+        <h2 id="countdown-heading" className="countdown-heading">
+          {parts.done ? 'We are live' : 'Until kickoff'}
+        </h2>
+        <p className="countdown-sub">
+          {parts.done
+            ? `Welcome to ${EVENT.dates} at ${EVENT.locationShort}.`
+            : `${EVENT.dates} · ${EVENT.locationShort}`}
+        </p>
+
+        <div
+          className="countdown-grid"
+          role="timer"
+          aria-live="polite"
+          aria-atomic="true"
+          aria-label={
+            parts.done
+              ? 'HackATL has started'
+              : `${parts.days} days, ${parts.hours} hours, ${parts.minutes} minutes, ${parts.seconds} seconds remaining`
+          }
+        >
+          {COUNTDOWN_UNITS.map(({ key, label }, i) => (
+            <div key={key} className="countdown-unit">
+              {i > 0 && (
+                <span className="countdown-sep" aria-hidden>
+                  :
+                </span>
+              )}
+              <div className="countdown-unit-inner">
+                <span className={`countdown-value${key === 'seconds' ? ' countdown-value-live' : ''}`}>
+                  {key === 'days' ? parts[key] : pad2(parts[key])}
+                </span>
+                <span className="countdown-label">{label}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
 
 function Placeholder({ className = '', children = 'Image Placeholder' }) {
   return (
@@ -391,6 +478,8 @@ function App() {
           </div>
         </div>
       </section>
+
+      <CountdownHero />
 
       {/* WHAT IS HACKATL */}
       <section className="what-is-section relative bg-gradient-to-b from-midnight via-cosmic to-cosmic">

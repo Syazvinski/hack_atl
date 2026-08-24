@@ -382,6 +382,152 @@ body { @apply antialiased bg-midnight text-white; }
   }
 }
 
+/* ── Countdown hero (post-main) ── */
+.countdown-hero {
+  background: #080510;
+  border-top: 1px solid rgba(232, 50, 124, 0.12);
+}
+
+.countdown-hero-ambient {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.countdown-hero-mesh {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 55% 70% at 50% 0%, rgba(232, 50, 124, 0.14), transparent 55%),
+    linear-gradient(180deg, #050208 0%, #0a0612 45%, #120818 100%);
+}
+
+.countdown-hero-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: min(42vw, 280px);
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent, rgba(232, 50, 124, 0.7), transparent);
+  animation: countdown-line-pulse 4.5s ease-in-out infinite;
+}
+
+.countdown-kicker {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #E8327C;
+}
+
+.countdown-heading {
+  margin-top: 0.75rem;
+  font-size: clamp(2.25rem, 6vw, 3.75rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: #fff;
+}
+
+.countdown-sub {
+  margin-top: 1rem;
+  max-width: 28rem;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.countdown-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.5rem 0;
+  margin-top: 2.75rem;
+}
+
+.countdown-unit {
+  display: flex;
+  align-items: flex-start;
+}
+
+.countdown-sep {
+  display: none;
+  padding: 0.15em 0.35rem 0;
+  font-size: clamp(2rem, 7vw, 4.5rem);
+  font-weight: 300;
+  line-height: 1;
+  color: rgba(232, 50, 124, 0.45);
+}
+
+@media (min-width: 640px) {
+  .countdown-sep {
+    display: block;
+  }
+
+  .countdown-grid {
+    gap: 0;
+  }
+}
+
+.countdown-unit-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 4.5rem;
+  padding: 0 0.65rem;
+}
+
+@media (min-width: 640px) {
+  .countdown-unit-inner {
+    min-width: 5.5rem;
+    padding: 0 0.85rem;
+  }
+}
+
+.countdown-value {
+  font-variant-numeric: tabular-nums;
+  font-size: clamp(2.5rem, 9vw, 5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: #fff;
+}
+
+.countdown-value-live {
+  color: #FF2D6B;
+  animation: countdown-tick 1s ease-in-out infinite;
+}
+
+.countdown-label {
+  margin-top: 0.65rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+@keyframes countdown-line-pulse {
+  0%, 100% { opacity: 0.35; transform: translateX(-50%) scaleX(0.85); }
+  50% { opacity: 1; transform: translateX(-50%) scaleX(1); }
+}
+
+@keyframes countdown-tick {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.72; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .countdown-hero-line,
+  .countdown-value-live {
+    animation: none !important;
+  }
+}
+
 /* What is HackATL — logo presence */
 .what-is-logo {
   animation: what-is-logo-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
