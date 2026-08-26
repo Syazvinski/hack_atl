@@ -13,9 +13,9 @@ export const EVENT = {
   },
   links: {
     registration:
-      'https://docs.google.com/forms/d/e/1FAIpQLSfvLt2ExtqgtWa8NWj25WveqK2UzSRW7Ni6b6NLpv08r3lk7A/viewform',
+      'https://docs.google.com/forms/d/127TM4LYExGXD1twwqaWRSvBIxR2DnOD-zLzI0WrA1P8/viewform',
     sponsorPacket:
-      'https://f005.backblazeb2.com/file/syazvin/HackATL+Corporate+Packet+2025.pdf',
+      'https://www.dropbox.com/scl/fi/67stpixproqwxxwvxzld9/HACKATL-Corporate-Packet-2026.pdf?rlkey=t5n3lhj3zc5osud7pv9p4qg99&st=ofn4x2av&dl=1',
     eevm: 'https://www.eevm.org/',
     goizueta:
       'https://goizueta.emory.edu/faculty/entrepreneurship-innovation/programs',
