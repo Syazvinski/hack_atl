@@ -566,16 +566,16 @@ function App() {
   }
 
   const FAQS = [
-    {q:'Who can apply?', a:'Students (undergrad/grad) from Emory and other universities. Multidisciplinary teams are encouraged; solo applicants can find teammates at kickoff.'},
-    {q:'Do I have to code?', a:'No. Teams need builders, designers, and business leads. Non‑technical contributors are essential.'},
-    {q:'How big are teams?', a:'Teams form at the event; most groups mix 3–5 people across skills (final team sizes and rules announced at kickoff).'},
-    {q:'What support will I get?', a:'Workshops, mentor hours, and structured feedback sessions run throughout Saturday; Sunday focuses on pitch prep.'},
-    {q:'What do winners receive?', a:'Cash awards (historically $13K+ across prizes) and access to Emory’s entrepreneurship ecosystem; standout teams often continue via campus programs.'},
-    {q:'What are past themes?', a:'Examples include The Great Hacksby (2021) and a Smart Cities prompt (2024).'},
-    {q:'Is it only for Emory students?', a:'No—HackATL regularly draws students from many universities across the Southeast (and beyond).'},
-    {q:'Where is it on campus?', a:'Goizueta Business School, Emory University (Atlanta).'},
-    {q:'What do I need for the event?', a:"We recommend bringing a laptop, charger, headphones, and anything else you'll need over the weekend. We'll provide meals, snacks, swag, and good vibes."},
-    {q:'I have more questions.', a:'Contact us at contact@eevm.org.'},
+    { q: 'Who can apply?', a: 'Students (undergrad/grad) from Emory and other universities. Multidisciplinary teams are encouraged; solo applicants can find teammates at kickoff.' },
+    { q: 'Do I have to code?', a: 'No. Teams need builders, designers, and business leads. Non‑technical contributors are essential.' },
+    { q: 'How big are teams?', a: 'Teams form at the event; most groups mix 3–5 people across skills (final team sizes and rules announced at kickoff).' },
+    { q: 'What support will I get?', a: 'Workshops, mentor hours, and structured feedback sessions run throughout Saturday; Sunday focuses on pitch prep.' },
+    { q: 'What do winners receive?', a: 'Cash awards (historically $13K+ across prizes) and access to Emory’s entrepreneurship ecosystem; standout teams often continue via campus programs.' },
+    { q: 'What are past themes?', a: 'Examples include The Great Hacksby (2021) and a Smart Cities prompt (2024).' },
+    { q: 'Is it only for Emory students?', a: 'No—HackATL regularly draws students from many universities across the Southeast (and beyond).' },
+    { q: 'Where is it on campus?', a: 'Goizueta Business School, Emory University (Atlanta).' },
+    { q: 'What do I need for the event?', a: "We recommend bringing a laptop, charger, headphones, and anything else you'll need over the weekend. We'll provide meals, snacks, swag, and good vibes." },
+    { q: 'I have more questions.', a: 'Contact us at contact@eevm.org.' },
   ]
 
   return (
@@ -692,11 +692,10 @@ function App() {
                     aria-selected={isActive}
                     id={`schedule-tab-${day.day.toLowerCase()}`}
                     onClick={() => setActiveDay(day.day)}
-                    className={`relative px-3 py-4 sm:px-6 sm:py-5 text-center transition-colors duration-300 ${
-                      isActive
-                        ? 'bg-hackatl-pink/15 text-white'
-                        : 'text-white/55 hover:text-white hover:bg-white/[0.04]'
-                    }`}
+                    className={`relative px-3 py-4 sm:px-6 sm:py-5 text-center transition-colors duration-300 ${isActive
+                      ? 'bg-hackatl-pink/15 text-white'
+                      : 'text-white/55 hover:text-white hover:bg-white/[0.04]'
+                      }`}
                   >
                     <span className="block text-base sm:text-xl font-extrabold tracking-tight">
                       {day.day}
@@ -706,9 +705,8 @@ function App() {
                     </span>
                     <span
                       aria-hidden
-                      className={`absolute inset-x-0 bottom-0 h-0.5 bg-hackatl-pink transition-opacity duration-300 ${
-                        isActive ? 'opacity-100' : 'opacity-0'
-                      }`}
+                      className={`absolute inset-x-0 bottom-0 h-0.5 bg-hackatl-pink transition-opacity duration-300 ${isActive ? 'opacity-100' : 'opacity-0'
+                        }`}
                     />
                   </button>
                 )
@@ -783,7 +781,7 @@ function App() {
               </ul>
             </div>
             <div>
-              <img src="/images/hackatl/teamwork.webp" alt="Team working" className="w-full h-64 object-cover rounded-2xl" loading="lazy" />
+              <img src="/images/hackatl/img1.webp" alt="Team working" className="w-full h-64 object-cover rounded-2xl" loading="lazy" />
             </div>
           </div>
         </div>
@@ -794,7 +792,7 @@ function App() {
         <div className="max-w-6xl mx-auto px-6 sm:px-8 py-16 md:py-24">
           <div className="grid md:grid-cols-2 gap-10 items-center">
             <div>
-              <img src="/images/hackatl/crowd.webp" alt="Crowd" className="w-full h-72 object-cover rounded-2xl" loading="lazy" />
+              <img src="/images/hackatl/img2.webp" alt="Crowd" className="w-full h-72 object-cover rounded-2xl" loading="lazy" />
             </div>
             <div>
               <h3 className="text-3xl md:text-4xl font-extrabold text-white">Who Participates</h3>
@@ -826,7 +824,7 @@ function App() {
                 </div>
                 <div className="mt-8 md:mt-0 w-full h-56 md:w-[28rem] md:h-60 rounded-xl overflow-hidden shadow-card ring-1 ring-hackatl-pink/15">
                   <img
-                    src="/images/hackatl/IMG_2578.webp"
+                    src="/images/hackatl/img3.webp"
                     alt="HackATL judges listening to pitches"
                     className="w-full h-full object-cover"
                     loading="lazy"
@@ -856,10 +854,52 @@ function App() {
               <p className="mt-3 text-white/90">300+ students; prompt centered on Smart Cities; $13K+ awarded.</p>
             </div>
           </div>
-          <div className="mt-8 grid md:grid-cols-3 gap-6">
-            <img src="/images/hackatl/IMG_2623.webp" alt="Past winner 1" className="w-full h-40 object-cover rounded-xl" loading="lazy" />
-            <img src="/images/hackatl/IMG_2619.webp" alt="Past winner 2" className="w-full h-40 object-cover rounded-xl" loading="lazy" />
-            <img src="/images/hackatl/IMG_2622.webp" alt="Past winner 3" className="w-full h-40 object-cover rounded-xl" loading="lazy" />
+
+          <div className="mt-10">
+            <p className="text-hackatl-pink font-semibold tracking-wide uppercase text-sm">HackATL 2025</p>
+            <h4 className="mt-1 text-2xl font-bold text-white">Past winners</h4>
+            <p className="mt-2 text-white/80 max-w-2xl leading-relaxed">
+              From our NASA-partnered theme year—teams that took home top prizes on stage at Goizueta.
+            </p>
+          </div>
+
+          {/* Asymmetric collage: sizes + focal crops absorb mismatched camera angles */}
+          <div className="mt-6 grid grid-cols-12 gap-3 sm:gap-4 md:gap-5 md:h-[26rem]">
+            <figure className="relative col-span-12 md:col-span-7 overflow-hidden rounded-2xl aspect-[5/4] md:aspect-auto md:h-full ring-1 ring-hackatl-pink/15">
+              <img
+                src="/images/hackatl/img4.webp"
+                alt="HackATL 2025 1st place team Soar-Bit with oversized check"
+                className="absolute inset-0 h-full w-full object-cover object-[52%_72%]"
+                loading="lazy"
+              />
+              <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-midnight/85 to-transparent px-4 pb-3 pt-10 text-sm font-semibold text-white">
+                1st — Soar-Bit
+              </figcaption>
+            </figure>
+            <div className="col-span-12 md:col-span-5 grid grid-cols-2 md:grid-cols-1 md:grid-rows-2 gap-3 sm:gap-4 md:gap-5 md:h-full">
+              <figure className="relative overflow-hidden rounded-2xl aspect-[16/11] md:aspect-auto md:min-h-0 ring-1 ring-hackatl-pink/15">
+                <img
+                  src="/images/hackatl/img5.webp"
+                  alt="HackATL 2025 2nd place team CLIMA on stage"
+                  className="absolute inset-0 h-full w-full object-cover object-[62%_38%] scale-[1.08]"
+                  loading="lazy"
+                />
+                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-midnight/85 to-transparent px-4 pb-3 pt-8 text-sm font-semibold text-white">
+                  2nd — CLIMA
+                </figcaption>
+              </figure>
+              <figure className="relative overflow-hidden rounded-2xl aspect-[16/11] md:aspect-auto md:min-h-0 ring-1 ring-hackatl-pink/15">
+                <img
+                  src="/images/hackatl/img6.webp"
+                  alt="HackATL 2025 3rd place team BioSolutions on stage"
+                  className="absolute inset-0 h-full w-full object-cover object-[50%_1%]"
+                  loading="lazy"
+                />
+                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-midnight/85 to-transparent px-4 pb-3 pt-8 text-sm font-semibold text-white">
+                  3rd — BioSolutions
+                </figcaption>
+              </figure>
+            </div>
           </div>
         </div>
       </section>
@@ -879,7 +919,7 @@ function App() {
               </div>
             </div>
             <div>
-              <img src="/images/hackatl/building.webp" alt="Goizueta" className="w-full h-64 object-cover rounded-2xl" loading="lazy" />
+              <img src="/images/hackatl/img7.webp" alt="Goizueta" className="w-full h-64 object-cover rounded-2xl" loading="lazy" />
             </div>
           </div>
         </div>
@@ -923,7 +963,14 @@ function App() {
                 Unlike code‑only hackathons, HackATL balances business rigor with technical build, mixing workshops, mentorship, and investor‑style pitching so teams leave with both a prototype and an executable plan.
               </p>
             </div>
-            <img src="/images/hackatl/IMG_2634.webp" alt="HackATL experience" className="w-full h-64 md:h-auto object-cover rounded-3xl shadow-card" loading="lazy" />
+            <div className="relative h-64 w-full md:h-full overflow-hidden rounded-3xl shadow-card ring-1 ring-hackatl-pink/15">
+              <img
+                src="/images/hackatl/img8.webp"
+                alt="HackATL experience"
+                className="absolute inset-0 h-full w-full object-cover origin-left scale-[1.3] -translate-x-[8%]"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -946,23 +993,20 @@ function App() {
                     <span>{item.q}</span>
                     <span
                       aria-hidden
-                      className={`ml-4 flex h-9 w-9 items-center justify-center rounded-full text-lg font-bold transition-colors ${
-                        isOpen ? 'bg-hackatl-pink text-white' : 'bg-white/10 text-hackatl-pink'
-                      }`}
+                      className={`ml-4 flex h-9 w-9 items-center justify-center rounded-full text-lg font-bold transition-colors ${isOpen ? 'bg-hackatl-pink text-white' : 'bg-white/10 text-hackatl-pink'
+                        }`}
                     >
                       {isOpen ? '−' : '+'}
                     </span>
                   </button>
                   <div
-                    className={`grid transition-[grid-template-rows] duration-300 ease-[cubic-bezier(0.33,1,0.68,1)] ${
-                      isOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
-                    }`}
+                    className={`grid transition-[grid-template-rows] duration-300 ease-[cubic-bezier(0.33,1,0.68,1)] ${isOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
+                      }`}
                   >
                     <div className="overflow-hidden">
                       <p
-                        className={`text-white/80 leading-relaxed transition-all duration-300 ease-[cubic-bezier(0.33,1,0.68,1)] transform ${
-                          isOpen ? 'mt-3 opacity-100 translate-y-0' : 'mt-0 opacity-0 -translate-y-1'
-                        }`}
+                        className={`text-white/80 leading-relaxed transition-all duration-300 ease-[cubic-bezier(0.33,1,0.68,1)] transform ${isOpen ? 'mt-3 opacity-100 translate-y-0' : 'mt-0 opacity-0 -translate-y-1'
+                          }`}
                       >
                         {item.a}
                       </p>
@@ -982,8 +1026,8 @@ function App() {
         <div className="max-w-6xl mx-auto px-6 sm:px-8 py-16 md:py-24">
           <h3 className="text-3xl md:text-4xl font-extrabold text-white text-center">Get Involved</h3>
           <div className="mt-10">
-            <div className="section-card p-6 flex flex-col md:flex-row md:items-center md:gap-8">
-              <img src="/images/hackatl/mentor.webp" alt="Mentor / Judge / Sponsor" className="w-full md:w-72 h-40 object-cover rounded-xl mb-4 md:mb-0" loading="lazy" />
+            <div className="section-card p-6 flex overflow-hidden flex-col md:flex-row md:items-center md:gap-8">
+              <img src="/images/hackatl/img9.webp" alt="Mentor / Judge / Sponsor" className="w-full md:w-72 h-40 object-cover object-[50%_0%] rounded-xl mb-4 md:mb-0" loading="lazy" />
               <div className="flex-1 md:min-w-0">
                 <h4 className="text-xl font-bold text-white">Mentor / Judge / Sponsor</h4>
                 <p className="mt-2 text-white/80 leading-relaxed">Each year’s panel and sponsors vary; interested partners connect through Goizueta’s entrepreneurship center.</p>
