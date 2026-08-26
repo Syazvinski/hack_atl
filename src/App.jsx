@@ -10,6 +10,12 @@ const COUNTDOWN_UNITS = [
   { key: 'seconds', label: 'Seconds' },
 ]
 
+const NAV_LINKS = [
+  { href: '#about', label: 'About' },
+  { href: '#schedule', label: 'Schedule' },
+  { href: '#faq', label: 'FAQ' },
+]
+
 function getCountdownParts(targetMs) {
   const diff = Math.max(0, targetMs - Date.now())
   const totalSeconds = Math.floor(diff / 1000)
@@ -26,8 +32,8 @@ function pad2(n) {
   return String(n).padStart(2, '0')
 }
 
-function CountdownHero() {
-  const targetMs = new Date(EVENT.startsAt).getTime()
+function useCountdown(targetIso) {
+  const targetMs = new Date(targetIso).getTime()
   const [parts, setParts] = useState(() => getCountdownParts(targetMs))
 
   useEffect(() => {
@@ -37,8 +43,146 @@ function CountdownHero() {
     return () => clearInterval(id)
   }, [targetMs])
 
+  return parts
+}
+
+function CountdownCompact({ parts, className = '' }) {
+  if (parts.done) {
+    return (
+      <span className={`header-countdown header-countdown-live ${className}`} aria-live="polite">
+        Live now
+      </span>
+    )
+  }
+
+  return (
+    <a
+      href="#countdown"
+      className={`header-countdown ${className}`}
+      aria-label={`${parts.days} days, ${parts.hours} hours, ${parts.minutes} minutes, ${parts.seconds} seconds until kickoff`}
+    >
+      <span className="header-countdown-block">
+        <span className="header-countdown-num">{parts.days}</span>
+        <span className="header-countdown-unit">d</span>
+      </span>
+      <span className="header-countdown-block">
+        <span className="header-countdown-num">{pad2(parts.hours)}</span>
+        <span className="header-countdown-unit">h</span>
+      </span>
+      <span className="header-countdown-block">
+        <span className="header-countdown-num">{pad2(parts.minutes)}</span>
+        <span className="header-countdown-unit">m</span>
+      </span>
+      <span className="header-countdown-block header-countdown-secs">
+        <span className="header-countdown-num">{pad2(parts.seconds)}</span>
+        <span className="header-countdown-unit">s</span>
+      </span>
+    </a>
+  )
+}
+
+function SiteHeader() {
+  const parts = useCountdown(EVENT.startsAt)
+  const [scrolled, setScrolled] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  useEffect(() => {
+    if (!menuOpen) return undefined
+    const onKey = (e) => {
+      if (e.key === 'Escape') setMenuOpen(false)
+    }
+    document.addEventListener('keydown', onKey)
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.removeEventListener('keydown', onKey)
+      document.body.style.overflow = ''
+    }
+  }, [menuOpen])
+
+  const closeMenu = () => setMenuOpen(false)
+
+  return (
+    <header className={`site-header${scrolled || menuOpen ? ' site-header-solid' : ''}`}>
+      <div className="site-header-inner">
+        <a href="#top" className="site-header-logo" onClick={closeMenu}>
+          <img
+            src="/images/hackatl/temp-logo.png"
+            alt={`HackATL ${EVENT.year}`}
+            className="site-header-logo-img"
+          />
+        </a>
+
+        <nav className="site-header-nav" aria-label="Page">
+          {NAV_LINKS.map((link) => (
+            <a key={link.href} href={link.href} className="site-header-link">
+              {link.label}
+            </a>
+          ))}
+        </nav>
+
+        <div className="site-header-actions">
+          <CountdownCompact parts={parts} className="site-header-countdown-desk" />
+          <a
+            href={EVENT.links.registration}
+            target="_blank"
+            rel="noreferrer"
+            className="btn-primary site-header-cta"
+          >
+            Sign up
+          </a>
+          <button
+            type="button"
+            className="site-header-menu-btn"
+            aria-expanded={menuOpen}
+            aria-controls="site-header-drawer"
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            onClick={() => setMenuOpen((open) => !open)}
+          >
+            <span className={`site-header-menu-icon${menuOpen ? ' is-open' : ''}`} aria-hidden />
+          </button>
+        </div>
+      </div>
+
+      <div
+        id="site-header-drawer"
+        className={`site-header-drawer${menuOpen ? ' is-open' : ''}`}
+        hidden={!menuOpen}
+      >
+        <CountdownCompact parts={parts} className="site-header-countdown-mobile" />
+        <nav className="site-header-drawer-nav" aria-label="Page mobile">
+          {NAV_LINKS.map((link) => (
+            <a key={link.href} href={link.href} className="site-header-drawer-link" onClick={closeMenu}>
+              {link.label}
+            </a>
+          ))}
+        </nav>
+        <a
+          href={EVENT.links.registration}
+          target="_blank"
+          rel="noreferrer"
+          className="btn-primary site-header-drawer-cta"
+          onClick={closeMenu}
+        >
+          Sign up now
+        </a>
+      </div>
+    </header>
+  )
+}
+
+function CountdownHero() {
+  const parts = useCountdown(EVENT.startsAt)
+
   return (
     <section
+      id="countdown"
       className="countdown-hero relative overflow-hidden"
       aria-labelledby="countdown-heading"
     >
@@ -435,7 +579,9 @@ function App() {
   ]
 
   return (
-    <div className="min-h-screen w-full bg-midnight">
+    <div id="top" className="min-h-screen w-full bg-midnight">
+      <SiteHeader />
+
       {/* HERO */}
       <section className="hero-space relative min-h-[100svh] flex items-center justify-center">
         {/* Ambient background layers */}
@@ -482,7 +628,7 @@ function App() {
       <CountdownHero />
 
       {/* WHAT IS HACKATL */}
-      <section className="what-is-section relative bg-gradient-to-b from-midnight via-cosmic to-cosmic">
+      <section id="about" className="what-is-section relative bg-gradient-to-b from-midnight via-cosmic to-cosmic">
         <div className="relative max-w-5xl mx-auto px-6 sm:px-8 py-20 md:py-28 text-center">
           <h2 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight">
             What is HackATL?
@@ -521,7 +667,7 @@ function App() {
       </section>
 
       {/* WEEKEND SCHEDULE */}
-      <section className="relative bg-gradient-to-b from-midnight via-cosmic to-midnight">
+      <section id="schedule" className="relative bg-gradient-to-b from-midnight via-cosmic to-midnight">
         <div className="max-w-6xl mx-auto px-6 sm:px-8 py-16 md:py-24">
           <div className="max-w-3xl">
             <h3 className="text-3xl md:text-4xl font-extrabold text-white">Weekend Schedule</h3>
@@ -783,7 +929,7 @@ function App() {
       </section>
 
       {/* FAQS */}
-      <section className="relative bg-gradient-to-b from-midnight via-cosmic to-midnight">
+      <section id="faq" className="relative bg-gradient-to-b from-midnight via-cosmic to-midnight">
         <div className="max-w-4xl mx-auto px-6 sm:px-8 py-16 md:py-24">
           <h3 className="text-3xl md:text-4xl font-extrabold text-white text-center">FAQs</h3>
           <div className="mt-8 divide-y divide-white/10 rounded-2xl bg-white/5 shadow-card ring-1 ring-hackatl-pink/15">
