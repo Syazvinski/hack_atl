@@ -2,7 +2,7 @@ export const EVENT_SCHEDULE = [
   {
     day: 'Friday',
     date: 'October 16',
-    summary: 'Kickoff, team formation, evening workshops, and first build sprint.',
+    summary: 'Opening night: team formation, workshops, cookies, and your first build sprint.',
     items: [
       {
         time: '2:00 PM - 4:00 PM',
@@ -38,14 +38,14 @@ export const EVENT_SCHEDULE = [
       {
         time: '10:00 PM',
         title: 'Building Time Begins',
-        notes: 'Dependent on students; teams sprint as needed and space stays open for late-night work.',
+        notes: 'Building runs as late as you need. The space stays open.',
       },
     ],
   },
   {
     day: 'Saturday',
     date: 'October 17',
-    summary: 'Workshops, mentor hours, and long-form build time with community touchpoints.',
+    summary: 'Workshops, mentor hours, and plenty of time to build.',
     items: [
       {
         time: '8:00 AM - 10:00 AM',
@@ -78,7 +78,7 @@ export const EVENT_SCHEDULE = [
   {
     day: 'Sunday',
     date: 'October 18',
-    summary: 'Final polish, judging rounds, and closing celebrations.',
+    summary: 'Polish your pitch, present to judges, and celebrate at closing.',
     items: [
       {
         time: '8:00 AM - 9:00 AM',

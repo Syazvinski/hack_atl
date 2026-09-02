@@ -566,16 +566,16 @@ function App() {
   }
 
   const FAQS = [
-    { q: 'Who can apply?', a: 'Students (undergrad/grad) from Emory and other universities. Multidisciplinary teams are encouraged; solo applicants can find teammates at kickoff.' },
-    { q: 'Do I have to code?', a: 'No. Teams need builders, designers, and business leads. Non‑technical contributors are essential.' },
-    { q: 'How big are teams?', a: 'Teams form at the event; most groups mix 3–5 people across skills (final team sizes and rules announced at kickoff).' },
-    { q: 'What support will I get?', a: 'Workshops, mentor hours, and structured feedback sessions run throughout Saturday; Sunday focuses on pitch prep.' },
-    { q: 'What do winners receive?', a: 'Cash awards (historically $13K+ across prizes) and access to Emory’s entrepreneurship ecosystem; standout teams often continue via campus programs.' },
-    { q: 'What are past themes?', a: 'Examples include The Great Hacksby (2021) and a Smart Cities prompt (2024).' },
-    { q: 'Is it only for Emory students?', a: 'No—HackATL regularly draws students from many universities across the Southeast (and beyond).' },
+    { q: 'Who can apply?', a: 'Undergrad and grad students from Emory and other universities. Bring a team, or find one at kickoff.' },
+    { q: 'Do I have to code?', a: 'No. Strong teams need builders, designers, and business leads. If you are not technical, there is still plenty for you to own.' },
+    { q: 'How big are teams?', a: 'Teams form at the event, usually 3-5 people. We share final team rules at kickoff.' },
+    { q: 'What support will I get?', a: 'Saturday is full of workshops and mentor hours. Sunday is all about getting your pitch stage-ready.' },
+    { q: 'What do winners receive?', a: 'Cash prizes (typically $13K+ total) and real connections to Emory entrepreneurship programs. Many winners keep building through campus accelerators and fellowships.' },
+    { q: 'What are past themes?', a: 'Past themes include The Great Hacksby (2021) and Smart Cities (2024).' },
+    { q: 'Is it only for Emory students?', a: 'Not at all. Students come from universities across the Southeast and beyond.' },
     { q: 'Where is it on campus?', a: 'Goizueta Business School, Emory University (Atlanta).' },
-    { q: 'What do I need for the event?', a: "We recommend bringing a laptop, charger, headphones, and anything else you'll need over the weekend. We'll provide meals, snacks, swag, and good vibes." },
-    { q: 'I have more questions.', a: 'Contact us at contact@eevm.org.' },
+    { q: 'What do I need for the event?', a: "Pack a laptop, charger, headphones, and whatever helps you work through the weekend. We cover meals, snacks, and swag." },
+    { q: 'I have more questions.', a: 'Email us at contact@eevm.org.' },
   ]
 
   return (
@@ -634,7 +634,7 @@ function App() {
             What is HackATL?
           </h2>
           <p className="mt-5 max-w-2xl mx-auto text-white/80 text-lg leading-relaxed">
-            Emory’s student-run business hackathon — powered by EEVM — where students build a venture from idea to pitch in 48 hours.
+            Emory's student-run business hackathon, hosted by EEVM. One weekend to take an idea from scratch to pitch.
           </p>
 
           <div className="mt-14 md:mt-16 flex flex-col sm:flex-row items-center justify-center gap-10 sm:gap-14 md:gap-20">
@@ -646,7 +646,7 @@ function App() {
             >
               <img
                 src="/images/hackatl/eevm_icon.webp"
-                alt="EEVM — Emory Entrepreneurship & Venture Management"
+                alt="EEVM, Emory Entrepreneurship and Venture Management"
                 className="h-20 sm:h-24 md:h-32 w-auto object-contain transition-transform duration-500 ease-out group-hover:scale-[1.04]"
               />
             </a>
@@ -661,7 +661,7 @@ function App() {
           </div>
 
           <p className="mt-12 md:mt-14 max-w-3xl mx-auto text-white/70 leading-relaxed">
-            Since 2013, HackATL has brought thousands of students from across the Southeast to Goizueta Business School to prototype, validate business models, and pitch to angels, VCs, and industry leaders — with a prize pool of up to $13,000.
+            Since 2013, thousands of students have come to Goizueta to prototype bold ideas, stress-test business models, and pitch to angels, VCs, and industry leaders. Up to $13,000 in prizes on the line.
           </p>
         </div>
       </section>
@@ -672,7 +672,7 @@ function App() {
           <div className="max-w-3xl">
             <h3 className="text-3xl md:text-4xl font-extrabold text-white">Weekend Schedule</h3>
             <p className="mt-3 text-white/80 leading-relaxed">
-              The full run of show for HackATL {EVENT.year} — meals, workshops, mentor hours, and deadlines.
+              Three days of building, learning, and pitching. Here's your HackATL {EVENT.year} weekend at a glance.
             </p>
           </div>
 
@@ -771,7 +771,7 @@ function App() {
             <div>
               <h3 className="text-3xl md:text-4xl font-extrabold text-white">What You Do</h3>
               <p className="mt-4 text-white/90 leading-relaxed">
-                Take a venture from concept to pitch: identify a customer problem, develop a solution, design a business model, and present to judges. Teams are intentionally interdisciplinary, bringing together builders, business strategists, and designers so that everyone, whether coding or not, contributes to the idea.
+                You'll spot a real customer problem, build something that solves it, map out how the business works, and pitch it live. Your team might include developers, business students, and designers. You don't need to code to make an impact.
               </p>
               <ul className="mt-6 space-y-3 text-white/90">
                 <li className="flex items-center gap-3"><BulbIcon /> <span>Problem discovery and validation</span></li>
@@ -797,7 +797,7 @@ function App() {
             <div>
               <h3 className="text-3xl md:text-4xl font-extrabold text-white">Who Participates</h3>
               <p className="mt-4 text-white/90 leading-relaxed">
-                Undergrads and grads from Emory and dozens of other universities across the Southeast; prior cohorts included students from pre‑med, computer science, pre‑law, and business. Beginners are welcome—the event is designed as a crash course in entrepreneurship.
+                Students from Emory and schools across the region show up every year, from pre-med and CS to pre-law and business. Never pitched before? No problem at all.
               </p>
             </div>
           </div>
@@ -814,12 +814,12 @@ function App() {
                   <h3 className="text-3xl md:text-4xl font-extrabold text-white">Meet the Judges</h3>
                   <p className="mt-2 text-hackatl-pink font-semibold tracking-wide uppercase">Prize Money • Up to $13K</p>
                   <p className="mt-4 text-white/90 leading-relaxed">
-                    A diverse judging panel—investors, entrepreneurs, professors, and civic leaders—evaluates teams on problem fit, product, and go‑to‑market.
+                    You'll pitch to investors, entrepreneurs, professors, and civic leaders who know the Atlanta startup scene. They score teams on problem fit, product, and go-to-market.
                   </p>
                   <ul className="mt-5 space-y-2 text-white/90">
-                    <li className="flex items-center gap-2"><TrophyIcon className="w-4 h-4" /> <span>Category and overall awards</span></li>
-                    <li className="flex items-center gap-2"><Icon><path d="M5 12l4 4L19 6" /></Icon> <span>Real feedback from experts</span></li>
-                    <li className="flex items-center gap-2"><Icon><circle cx="12" cy="12" r="9" /><path d="M12 7v10" /><path d="M7 12h10" /></Icon> <span>Access to Emory’s venture ecosystem</span></li>
+                    <li className="flex items-center gap-2"><TrophyIcon className="w-4 h-4" /> <span>Cash prizes across categories</span></li>
+                    <li className="flex items-center gap-2"><Icon><path d="M5 12l4 4L19 6" /></Icon> <span>Honest feedback from judges</span></li>
+                    <li className="flex items-center gap-2"><Icon><circle cx="12" cy="12" r="9" /><path d="M12 7v10" /><path d="M7 12h10" /></Icon> <span>A path into Emory entrepreneurship programs</span></li>
                   </ul>
                 </div>
                 <div className="mt-8 md:mt-0 w-full h-56 md:w-[28rem] md:h-60 rounded-xl overflow-hidden shadow-card ring-1 ring-hackatl-pink/15">
@@ -842,16 +842,16 @@ function App() {
           <h3 className="text-3xl md:text-4xl font-extrabold text-white">Track Record</h3>
           <div className="mt-8 grid md:grid-cols-2 gap-6">
             <div className="section-card p-6">
-              <h4 className="text-xl font-bold text-white">2021 — The Great Hacksby</h4>
+              <h4 className="text-xl font-bold text-white">2021: The Great Hacksby</h4>
               <ul className="mt-3 text-white/90 space-y-1">
-                <li>1st — Team Clip ($5,000)</li>
-                <li>2nd — Trident ($3,000)</li>
-                <li>3rd — Eco Friends ($2,000)</li>
+                <li>1st place: Team Clip ($5,000)</li>
+                <li>2nd place: Trident ($3,000)</li>
+                <li>3rd place: Eco Friends ($2,000)</li>
               </ul>
             </div>
             <div className="section-card p-6">
-              <h4 className="text-xl font-bold text-white">2024 — Smart Cities</h4>
-              <p className="mt-3 text-white/90">300+ students; prompt centered on Smart Cities; $13K+ awarded.</p>
+              <h4 className="text-xl font-bold text-white">2024: Smart Cities</h4>
+              <p className="mt-3 text-white/90">300+ students. Theme: Smart Cities. $13K+ in prizes awarded.</p>
             </div>
           </div>
 
@@ -859,7 +859,7 @@ function App() {
             <p className="text-hackatl-pink font-semibold tracking-wide uppercase text-sm">HackATL 2025</p>
             <h4 className="mt-1 text-2xl font-bold text-white">Past winners</h4>
             <p className="mt-2 text-white/80 max-w-2xl leading-relaxed">
-              From our NASA-partnered theme year—teams that took home top prizes on stage at Goizueta.
+              These teams took the stage at Goizueta during our NASA-partnered theme year.
             </p>
           </div>
 
@@ -873,7 +873,7 @@ function App() {
                 loading="lazy"
               />
               <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-midnight/85 to-transparent px-4 pb-3 pt-10 text-sm font-semibold text-white">
-                1st — Soar-Bit
+                1st place: Soar-Bit
               </figcaption>
             </figure>
             <div className="col-span-12 md:col-span-5 grid grid-cols-2 md:grid-cols-1 md:grid-rows-2 gap-3 sm:gap-4 md:gap-5 md:h-full">
@@ -885,7 +885,7 @@ function App() {
                   loading="lazy"
                 />
                 <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-midnight/85 to-transparent px-4 pb-3 pt-8 text-sm font-semibold text-white">
-                  2nd — CLIMA
+                  2nd place: CLIMA
                 </figcaption>
               </figure>
               <figure className="relative overflow-hidden rounded-2xl aspect-[16/11] md:aspect-auto md:min-h-0 ring-1 ring-hackatl-pink/15">
@@ -896,7 +896,7 @@ function App() {
                   loading="lazy"
                 />
                 <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-midnight/85 to-transparent px-4 pb-3 pt-8 text-sm font-semibold text-white">
-                  3rd — BioSolutions
+                  3rd place: BioSolutions
                 </figcaption>
               </figure>
             </div>
@@ -911,7 +911,7 @@ function App() {
             <div>
               <h3 className="text-3xl md:text-4xl font-extrabold text-white">When & Where</h3>
               <p className="mt-4 text-white/90 leading-relaxed">
-                HackATL typically runs over a weekend in October during the InnovATL season, at Goizueta Business School, 1300 Clifton Rd NE, Atlanta, GA 30322. Exact dates vary—check the current registration page.
+                {EVENT.dates} at Goizueta Business School, 1300 Clifton Rd NE, Atlanta, GA 30322. It all happens during InnovATL week.
               </p>
               <div className="mt-4 text-white/80 flex items-center gap-2">
                 <PinIcon />
@@ -932,7 +932,7 @@ function App() {
             <div>
               <h3 className="text-3xl md:text-4xl font-extrabold text-white">Who Runs HackATL</h3>
               <p className="mt-4 text-white/90 leading-relaxed">
-                HackATL is organized by EEVM in partnership with Goizueta’s Center for Entrepreneurship & Innovation, with support from InnovATL and the City of Atlanta.
+                HackATL is run by EEVM students, with Goizueta's Center for Entrepreneurship & Innovation, InnovATL, and the City of Atlanta behind it.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-6">
@@ -960,7 +960,7 @@ function App() {
             <div className="md:col-span-2 bg-nebula ring-1 ring-hackatl-pink/25 text-white rounded-3xl p-10 shadow-glow">
               <h3 className="text-3xl md:text-4xl font-extrabold">Why HackATL is Different</h3>
               <p className="mt-4 text-white/80 leading-relaxed">
-                Unlike code‑only hackathons, HackATL balances business rigor with technical build, mixing workshops, mentorship, and investor‑style pitching so teams leave with both a prototype and an executable plan.
+                Most hackathons stop at the code. HackATL is about the full venture: workshops, mentors, and pitches that feel like the real thing. You leave with a working prototype and a plan worth running with.
               </p>
             </div>
             <div className="relative h-64 w-full md:h-full overflow-hidden rounded-3xl shadow-card ring-1 ring-hackatl-pink/15">
@@ -1030,7 +1030,7 @@ function App() {
               <img src="/images/hackatl/img9.webp" alt="Mentor / Judge / Sponsor" className="w-full md:w-72 h-40 object-cover object-[50%_0%] rounded-xl mb-4 md:mb-0" loading="lazy" />
               <div className="flex-1 md:min-w-0">
                 <h4 className="text-xl font-bold text-white">Mentor / Judge / Sponsor</h4>
-                <p className="mt-2 text-white/80 leading-relaxed">Each year’s panel and sponsors vary; interested partners connect through Goizueta’s entrepreneurship center.</p>
+                <p className="mt-2 text-white/80 leading-relaxed">We build a new panel and sponsor group every year. To mentor, judge, or sponsor, get in touch through Goizueta's entrepreneurship center.</p>
               </div>
               <div className="mt-4 md:mt-0">
                 <a
