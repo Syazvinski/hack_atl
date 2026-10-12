@@ -3,6 +3,8 @@ export const EVENT = {
   dates: 'October 16-18, 2026',
   /** Registration opens — countdown target (Eastern Time) */
   startsAt: '2026-10-16T14:00:00-04:00',
+  /** Registration closed: we're at capacity. Set false to bring the sign-up buttons back. */
+  registrationClosed: true,
   locationShort: 'Emory University, Atlanta, GA',
   locationFull: 'Emory University, Atlanta, Georgia',
   theme: {

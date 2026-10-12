@@ -129,14 +129,20 @@ function SiteHeader() {
 
         <div className="site-header-actions">
           <CountdownCompact parts={parts} className="site-header-countdown-desk" />
-          <a
-            href={EVENT.links.registration}
-            target="_blank"
-            rel="noreferrer"
-            className="btn-primary site-header-cta"
-          >
-            Sign up
-          </a>
+          {EVENT.registrationClosed ? (
+            <span className="btn-closed site-header-cta" aria-disabled="true">
+              Registration closed
+            </span>
+          ) : (
+            <a
+              href={EVENT.links.registration}
+              target="_blank"
+              rel="noreferrer"
+              className="btn-primary site-header-cta"
+            >
+              Sign up
+            </a>
+          )}
           <button
             type="button"
             className="site-header-menu-btn"
@@ -163,15 +169,21 @@ function SiteHeader() {
             </a>
           ))}
         </nav>
-        <a
-          href={EVENT.links.registration}
-          target="_blank"
-          rel="noreferrer"
-          className="btn-primary site-header-drawer-cta"
-          onClick={closeMenu}
-        >
-          Sign up now
-        </a>
+        {EVENT.registrationClosed ? (
+          <span className="btn-closed site-header-drawer-cta" aria-disabled="true">
+            Registration closed
+          </span>
+        ) : (
+          <a
+            href={EVENT.links.registration}
+            target="_blank"
+            rel="noreferrer"
+            className="btn-primary site-header-drawer-cta"
+            onClick={closeMenu}
+          >
+            Sign up now
+          </a>
+        )}
       </div>
     </header>
   )
@@ -613,14 +625,25 @@ function App() {
           </div>
 
           <div className="hero-fade-in hero-fade-in-4 relative z-10 mt-10">
-            <a
-              href={EVENT.links.registration}
-              target="_blank"
-              rel="noreferrer"
-              className="btn-primary btn-breathe px-8 sm:px-10 py-3.5 sm:py-4 text-base sm:text-lg font-semibold uppercase tracking-wide"
-            >
-              Sign up now
-            </a>
+            {EVENT.registrationClosed ? (
+              <div className="registration-closed">
+                <span className="btn-closed px-8 sm:px-10 py-3.5 sm:py-4 text-base sm:text-lg font-semibold uppercase tracking-wide">
+                  Registration closed
+                </span>
+                <p className="registration-closed-note">
+                  We've hit capacity. We got more sign-ups than we have room for this year. Thanks to everyone who registered, and we'll see you there!
+                </p>
+              </div>
+            ) : (
+              <a
+                href={EVENT.links.registration}
+                target="_blank"
+                rel="noreferrer"
+                className="btn-primary btn-breathe px-8 sm:px-10 py-3.5 sm:py-4 text-base sm:text-lg font-semibold uppercase tracking-wide"
+              >
+                Sign up now
+              </a>
+            )}
           </div>
         </div>
       </section>
