@@ -136,8 +136,6 @@ function SiteHeader() {
           ) : (
             <a
               href={EVENT.links.registration}
-              target="_blank"
-              rel="noreferrer"
               className="btn-primary site-header-cta"
             >
               Sign up
@@ -176,8 +174,6 @@ function SiteHeader() {
         ) : (
           <a
             href={EVENT.links.registration}
-            target="_blank"
-            rel="noreferrer"
             className="btn-primary site-header-drawer-cta"
             onClick={closeMenu}
           >
@@ -637,8 +633,6 @@ function App() {
             ) : (
               <a
                 href={EVENT.links.registration}
-                target="_blank"
-                rel="noreferrer"
                 className="btn-primary btn-breathe px-8 sm:px-10 py-3.5 sm:py-4 text-base sm:text-lg font-semibold uppercase tracking-wide"
               >
                 Sign up now

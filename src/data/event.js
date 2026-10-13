@@ -3,8 +3,8 @@ export const EVENT = {
   dates: 'October 16-18, 2026',
   /** Registration opens — countdown target (Eastern Time) */
   startsAt: '2026-10-16T14:00:00-04:00',
-  /** Registration closed: we're at capacity. Set false to bring the sign-up buttons back. */
-  registrationClosed: true,
+  /** Set true to replace the sign-up buttons with the registration closed notice. */
+  registrationClosed: false,
   locationShort: 'Emory University, Atlanta, GA',
   locationFull: 'Emory University, Atlanta, Georgia',
   theme: {
@@ -14,8 +14,7 @@ export const EVENT = {
     tagline: 'The World After AI',
   },
   links: {
-    registration:
-      'https://docs.google.com/forms/d/127TM4LYExGXD1twwqaWRSvBIxR2DnOD-zLzI0WrA1P8/viewform',
+    registration: 'https://forms.gle/oXXKEBaFN3xPRbVN7',
     sponsorPacket:
       'https://www.dropbox.com/scl/fi/67stpixproqwxxwvxzld9/HACKATL-Corporate-Packet-2026.pdf?rlkey=t5n3lhj3zc5osud7pv9p4qg99&st=ofn4x2av&dl=1',
     eevm: 'https://www.eevm.org/',
