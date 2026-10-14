@@ -904,7 +904,7 @@ a.header-countdown:hover {
 .program-day > p:not(.program-eyebrow) { font-size: 14px; line-height: 1.7; color: #6e626e; }
 .program-location { display: block; font-size: 11px; line-height: 1.7; margin-top: 32px; color: #6e626e; }
 .program-list { margin: 0; padding: 0; list-style: none; }
-.program-row { display: grid; grid-template-columns: 135px 1fr 20px; gap: 20px; padding: 24px 0; border-bottom: 1px solid #cec4c8; }
+.program-row { display: grid; grid-template-columns: 155px 1fr 20px; gap: 20px; padding: 24px 0; border-bottom: 1px solid #cec4c8; }
 .program-row:first-child { padding-top: 0; }
 .program-time { font-size: 12px; font-weight: 600; font-variant-numeric: tabular-nums; color: #9e3157; line-height: 1.6; }
 .program-row h5 { font-size: 17px; line-height: 1.4; font-weight: 600; letter-spacing: -.02em; }
@@ -927,14 +927,14 @@ a.header-countdown:hover {
  .program-panel { grid-template-columns: 1fr; gap: 28px; padding-top: 28px; }
  .program-day h4 { font-size: 30px; }
  .program-location { display: none; }
- .program-row { grid-template-columns: 100px 1fr; gap: 14px; padding: 20px 0; }
+ .program-row { grid-template-columns: 1fr; gap: 7px; padding: 20px 0; }
  .program-row h5 { font-size: 16px; }
  .program-row-number { display: none; }
  .program-time { font-size: 11px; }
  .program-footer > span { font-size: 8px; letter-spacing: .07em; }
 }
 
-.program-time span { display: block; white-space: nowrap; }
+.program-time { white-space: nowrap; }
 
 /* Match the program to the site's dark palette. */
 .program-section { background: #100a19; color: #f7f3fa; }

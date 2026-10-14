@@ -691,7 +691,7 @@ function App() {
             <ol className="program-list">
               {selectedDay.items.map((item, index) => (
                 <li key={`${selectedDay.day}-${index}`} className="program-row">
-                  <div className="program-time">{item.time.split(' - ').map((time, i) => <span key={time}>{i > 0 ? '– ' : ''}{time}</span>)}</div>
+                  <div className="program-time">{item.time.replace(' - ', ' – ')}</div>
                   <div><h5>{item.title}</h5>{item.notes && <p>{item.notes}</p>}</div>
                   <span className="program-row-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
                 </li>
