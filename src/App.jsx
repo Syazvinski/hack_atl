@@ -112,11 +112,8 @@ function SiteHeader() {
     <header className={`site-header${scrolled || menuOpen ? ' site-header-solid' : ''}`}>
       <div className="site-header-inner">
         <a href="#top" className="site-header-logo" onClick={closeMenu}>
-          <img
-            src="/images/hackatl/temp-logo.png"
-            alt={`HackATL ${EVENT.year}`}
-            className="site-header-logo-img"
-          />
+          <img className="site-header-brand-mark" src="/images/hackatl/hackatl-nav-mark.png" alt="" aria-hidden="true" />
+          <span className="site-header-wordmark">HACK<span>ATL</span><small>{EVENT.year}</small></span>
         </a>
 
         <nav className="site-header-nav" aria-label="Page">
@@ -582,7 +579,7 @@ function App() {
     { q: 'What are past themes?', a: 'Past themes include The Great Hacksby (2021) and Smart Cities (2024).' },
     { q: 'Is it only for Emory students?', a: 'Not at all. Students come from universities across the Southeast and beyond.' },
     { q: 'Where is it on campus?', a: 'Goizueta Business School, Emory University (Atlanta).' },
-    { q: 'What do I need for the event?', a: "Pack a laptop, charger, headphones, and whatever helps you work through the weekend. We cover meals, snacks, and swag." },
+    { q: 'What do I need for the event?', a: 'Both a valid government-issued ID and a valid student ID are required for check-in. Pack a laptop, charger, headphones, and whatever helps you work through the weekend. We cover meals, snacks, and swag.' },
     { q: 'I have more questions.', a: 'Email us at contact@eevm.org.' },
   ]
 

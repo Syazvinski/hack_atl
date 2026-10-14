@@ -58,16 +58,35 @@ body { @apply antialiased bg-midnight text-white; }
   outline-offset: 3px;
 }
 
-.site-header-logo-img {
-  height: 2.35rem;
-  width: auto;
+.site-header-brand-mark {
+  width: 58px;
+  height: 58px;
   object-fit: contain;
+  flex-shrink: 0;
 }
 
-@media (min-width: 640px) {
-  .site-header-logo-img {
-    height: 2.75rem;
-  }
+.site-header-logo {
+  gap: 0.6rem;
+  text-decoration: none;
+  color: #fff;
+}
+
+.site-header-wordmark {
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 1;
+}
+
+.site-header-wordmark > span { color: #f2498c; }
+
+.site-header-wordmark small {
+  display: block;
+  margin-top: 5px;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  color: #c1b7c9;
 }
 
 .site-header-nav {

@@ -7,7 +7,7 @@ export const EVENT_SCHEDULE = [
       {
         time: '2:00 PM - 4:00 PM',
         title: 'Registration & Student CheckIn',
-        notes: 'EEVM-ers arrive 1:00-2:00 PM to help set up; execs at 1:00 PM. Students must bring a valid student ID.',
+        notes: 'Participants must bring both a valid government-issued ID and a valid student ID.',
       },
       {
         time: '4:00 PM - 5:00 PM',
