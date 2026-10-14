@@ -6,7 +6,7 @@ export const EVENT_SCHEDULE = [
     items: [
       {
         time: '2:00 PM - 4:00 PM',
-        title: 'Registration & Student CheckIn',
+        title: 'Registration & Student Check-in',
         notes: 'Participants must bring both a valid government-issued ID and a valid student ID.',
       },
       {
@@ -15,16 +15,15 @@ export const EVENT_SCHEDULE = [
       },
       {
         time: '5:00 PM - 5:45 PM',
-        title: 'Opening Ceremony & Keynote Speaker #1',
+        title: 'Opening Ceremony & Keynote Speaker',
       },
       {
         time: '6:00 PM - 7:00 PM',
-        title: 'Dinner & Networking',
-        notes: 'Dinner service runs alongside round-robin networking.',
+        title: 'Workshop #1',
       },
       {
         time: '7:00 PM - 9:00 PM',
-        title: 'Workshop',
+        title: 'Dinner & Networking',
       },
       {
         time: '9:00 PM',
@@ -33,12 +32,11 @@ export const EVENT_SCHEDULE = [
       {
         time: '9:00 PM - 10:00 PM',
         title: 'Cookie Social',
-        notes: 'Featuring Insomnia Cookies, Monster, and other energy drinks.',
       },
       {
         time: '10:00 PM',
         title: 'Building Time Begins',
-        notes: 'Building runs as late as you need. The space stays open.',
+        notes: 'Start time depends on participants.',
       },
     ],
   },
@@ -54,7 +52,6 @@ export const EVENT_SCHEDULE = [
       {
         time: '10:00 AM - 10:45 AM',
         title: 'Workshop #2',
-        notes: 'Optional session for teams leaning into AI features.',
       },
       {
         time: '11:00 AM - 1:00 PM',
@@ -71,7 +68,6 @@ export const EVENT_SCHEDULE = [
       {
         time: '7:00 PM - 9:00 PM',
         title: 'Dinner',
-        notes: 'Shared with founders networking conversation.',
       },
     ],
   },

@@ -182,6 +182,51 @@ function SiteHeader() {
   )
 }
 
+const Icon = ({ children, className = 'w-4 h-4 text-hackatl-pink' }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    {children}
+  </svg>
+)
+
+const PinIcon = (props) => (
+  <Icon {...props}>
+    <path d="M12 21s-6-5.1-6-9a6 6 0 1 1 12 0c0 3.9-6 9-6 9Z" />
+    <circle cx="12" cy="12" r="2.5" />
+  </Icon>
+)
+
+const ClockIcon = (props) => (
+  <Icon {...props}>
+    <circle cx="12" cy="12" r="8" />
+    <path d="M12 8v5l3 2" />
+  </Icon>
+)
+
+const TrophyIcon = (props) => (
+  <Icon {...props}>
+    <path d="M8 4h8v2a4 4 0 0 1-8 0V4Z" />
+    <path d="M8 4H5a3 3 0 0 0 3 3" />
+    <path d="M16 4h3a3 3 0 0 1-3 3" />
+    <path d="M12 14v4" />
+    <path d="M9 21h6" />
+  </Icon>
+)
+
+const BulbIcon = (props) => (
+  <Icon {...props}>
+    <path d="M9 18h6" />
+    <path d="M9.5 14a5 5 0 1 1 5 0c-.8.6-1.5 1.2-1.7 2H11.2c-.2-.8-.9-1.4-1.7-2Z" />
+  </Icon>
+)
+
+const RocketIcon = (props) => (
+  <Icon {...props}>
+    <path d="M5 19c1-3 4-5 7-5s6 2 7 5" />
+    <path d="M12 4l2 4-4 2 2-6Z" />
+  </Icon>
+)
+
+
 function CountdownHero() {
   const parts = useCountdown(EVENT.startsAt)
 
@@ -245,61 +290,6 @@ function Placeholder({ className = '', children = 'Image Placeholder' }) {
   )
 }
 
-function CalendarIcon({ label = 'Day' }) {
-  const short = label.slice(0, 3)
-  return (
-    <div className="w-16 h-16 rounded-lg bg-white/10 ring-1 ring-hackatl-pink/30 shadow overflow-hidden flex flex-col">
-      <div className="h-4 bg-hackatl-pink" />
-      <div className="flex-1 flex items-center justify-center text-hackatl-pink font-extrabold text-sm tracking-wide">
-        {short}
-      </div>
-    </div>
-  )
-}
-
-const Icon = ({ children, className = 'w-4 h-4 text-hackatl-pink' }) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-    {children}
-  </svg>
-)
-
-const PinIcon = (props) => (
-  <Icon {...props}>
-    <path d="M12 21s-6-5.1-6-9a6 6 0 1 1 12 0c0 3.9-6 9-6 9Z" />
-    <circle cx="12" cy="12" r="2.5" />
-  </Icon>
-)
-
-const ClockIcon = (props) => (
-  <Icon {...props}>
-    <circle cx="12" cy="12" r="8" />
-    <path d="M12 8v5l3 2" />
-  </Icon>
-)
-
-const TrophyIcon = (props) => (
-  <Icon {...props}>
-    <path d="M8 4h8v2a4 4 0 0 1-8 0V4Z" />
-    <path d="M8 4H5a3 3 0 0 0 3 3" />
-    <path d="M16 4h3a3 3 0 0 1-3 3" />
-    <path d="M12 14v4" />
-    <path d="M9 21h6" />
-  </Icon>
-)
-
-const BulbIcon = (props) => (
-  <Icon {...props}>
-    <path d="M9 18h6" />
-    <path d="M9.5 14a5 5 0 1 1 5 0c-.8.6-1.5 1.2-1.7 2H11.2c-.2-.8-.9-1.4-1.7-2Z" />
-  </Icon>
-)
-
-const RocketIcon = (props) => (
-  <Icon {...props}>
-    <path d="M5 19c1-3 4-5 7-5s6 2 7 5" />
-    <path d="M12 4l2 4-4 2 2-6Z" />
-  </Icon>
-)
 
 function HeroTechLayer() {
   const nodes = [
@@ -681,99 +671,34 @@ function App() {
       </section>
 
       {/* WEEKEND SCHEDULE */}
-      <section id="schedule" className="relative bg-gradient-to-b from-midnight via-cosmic to-midnight">
-        <div className="max-w-6xl mx-auto px-6 sm:px-8 py-16 md:py-24">
-          <div className="max-w-3xl">
-            <h3 className="text-3xl md:text-4xl font-extrabold text-white">Weekend Schedule</h3>
-            <p className="mt-3 text-white/80 leading-relaxed">
-              Three days of building, learning, and pitching. Here's your HackATL {EVENT.year} weekend at a glance.
-            </p>
+      <section id="schedule" className="program-section">
+        <div className="program-shell">
+          <div className="program-heading">
+            <div><p className="program-eyebrow">OCTOBER 16–18, 2026</p><h3>Weekend schedule</h3></div>
+            <div className="program-intro"><p>Find your team. Build your idea. Take the stage.</p><span>Three days at HackATL {EVENT.year}. All times Eastern.</span></div>
           </div>
-
-          <div className="mt-8 rounded-3xl bg-white/[0.04] ring-1 ring-hackatl-pink/20 shadow-card overflow-hidden">
-            <div
-              className="grid grid-cols-3 border-b border-hackatl-pink/15"
-              role="tablist"
-              aria-label="Schedule by day"
-            >
-              {EVENT_SCHEDULE.map((day) => {
-                const isActive = activeDay === day.day
-                return (
-                  <button
-                    key={day.day}
-                    type="button"
-                    role="tab"
-                    aria-selected={isActive}
-                    id={`schedule-tab-${day.day.toLowerCase()}`}
-                    onClick={() => setActiveDay(day.day)}
-                    className={`relative px-3 py-4 sm:px-6 sm:py-5 text-center transition-colors duration-300 ${isActive
-                      ? 'bg-hackatl-pink/15 text-white'
-                      : 'text-white/55 hover:text-white hover:bg-white/[0.04]'
-                      }`}
-                  >
-                    <span className="block text-base sm:text-xl font-extrabold tracking-tight">
-                      {day.day}
-                    </span>
-                    <span className="mt-0.5 block text-xs sm:text-sm font-medium tracking-wide opacity-70">
-                      {day.date}
-                    </span>
-                    <span
-                      aria-hidden
-                      className={`absolute inset-x-0 bottom-0 h-0.5 bg-hackatl-pink transition-opacity duration-300 ${isActive ? 'opacity-100' : 'opacity-0'
-                        }`}
-                    />
-                  </button>
-                )
-              })}
-            </div>
-
-            <div
-              key={selectedDay.day}
-              role="tabpanel"
-              aria-labelledby={`schedule-tab-${selectedDay.day.toLowerCase()}`}
-              className="schedule-day-panel p-5 sm:p-8 md:p-10"
-            >
-              <div className="flex items-start gap-4 sm:gap-5">
-                <CalendarIcon label={selectedDay.day} />
-                <div>
-                  <h4 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-                    {selectedDay.day}
-                  </h4>
-                  <p className="mt-2 text-white/70 leading-relaxed max-w-2xl">
-                    {selectedDay.summary}
-                  </p>
-                </div>
-              </div>
-
-              <ol className="mt-8 space-y-0">
-                {selectedDay.items.map((item, index) => (
-                  <li
-                    key={`${selectedDay.day}-${index}`}
-                    className="schedule-item group relative grid grid-cols-[auto_1fr] gap-x-4 sm:gap-x-6 py-4 sm:py-5"
-                    style={{ animationDelay: `${index * 40}ms` }}
-                  >
-                    <div className="relative flex flex-col items-center" aria-hidden>
-                      <span className="mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full bg-hackatl-pink ring-4 ring-hackatl-pink/20" />
-                      {index < selectedDay.items.length - 1 && (
-                        <span className="mt-2 w-px flex-1 bg-gradient-to-b from-hackatl-pink/40 to-hackatl-pink/10" />
-                      )}
-                    </div>
-                    <div className="min-w-0 pb-1">
-                      <div className="text-xs sm:text-sm font-semibold uppercase tracking-wide text-hackatl-pink">
-                        {item.time}
-                      </div>
-                      <div className="mt-1 text-base sm:text-lg text-white font-semibold leading-snug">
-                        {item.title}
-                      </div>
-                      {item.notes && (
-                        <p className="mt-1.5 text-white/65 text-sm leading-relaxed">{item.notes}</p>
-                      )}
-                    </div>
-                  </li>
-                ))}
-              </ol>
-            </div>
+          <div className="program-tabs" role="tablist" aria-label="Schedule by day">
+            {EVENT_SCHEDULE.map((day, index) => (
+              <button key={day.day} type="button" role="tab" aria-selected={activeDay === day.day}
+                aria-controls="program-panel" id={`schedule-tab-${day.day.toLowerCase()}`}
+                onClick={() => setActiveDay(day.day)} className={`program-tab ${activeDay === day.day ? 'is-active' : ''}`}>
+                <span className="program-tab-date">{16 + index}</span><span>{day.day}<small>OCTOBER</small></span><span className="program-tab-arrow" aria-hidden="true">↗</span>
+              </button>
+            ))}
           </div>
+          <div id="program-panel" role="tabpanel" aria-labelledby={`schedule-tab-${selectedDay.day.toLowerCase()}`} className="program-panel" tabIndex={0}>
+            <div className="program-day"><p className="program-eyebrow">{selectedDay.date} / {EVENT.year}</p><h4>{selectedDay.day}</h4><p>{selectedDay.summary}</p><span className="program-location">Goizueta Business School<br />Emory University · Atlanta</span></div>
+            <ol className="program-list">
+              {selectedDay.items.map((item, index) => (
+                <li key={`${selectedDay.day}-${index}`} className="program-row">
+                  <div className="program-time">{item.time.split(' - ').map((time, i) => <span key={time}>{i > 0 ? '– ' : ''}{time}</span>)}</div>
+                  <div><h5>{item.title}</h5>{item.notes && <p>{item.notes}</p>}</div>
+                  <span className="program-row-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                </li>
+              ))}
+            </ol>
+          </div>
+          <div className="program-footer"><span>48 HOURS. ONE BIG IDEA.</span><a href={EVENT.links.registration}>Save your spot <span aria-hidden="true">↗</span></a></div>
         </div>
       </section>
 
