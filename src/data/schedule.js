@@ -6,37 +6,41 @@ export const EVENT_SCHEDULE = [
     items: [
       {
         time: '2:00 PM - 4:00 PM',
-        title: 'Registration & Student Check-in',
+        title: 'Registration & Student Check-In',
         notes: 'Participants must bring both a valid government-issued ID and a valid student ID.',
       },
       {
         time: '4:00 PM - 5:00 PM',
-        title: 'Group Formation Time',
+        title: 'Team Formation Mixer & Early Dinner',
       },
       {
         time: '5:00 PM - 5:45 PM',
-        title: 'Opening Ceremony & Keynote Speaker',
+        title: 'Opening Ceremony & Keynote',
+      },
+      {
+        time: '5:45 PM - 6:00 PM',
+        title: 'Break & Workshop Transition',
       },
       {
         time: '6:00 PM - 7:00 PM',
         title: 'Workshop #1',
       },
       {
-        time: '7:00 PM - 9:00 PM',
-        title: 'Dinner & Networking',
+        time: '7:00 PM - 10:00 PM',
+        title: 'Open Building & Independent Team Planning',
       },
       {
-        time: '9:00 PM',
-        title: 'Team formation submission',
+        time: '10:00 PM - 10:30 PM',
+        title: 'Cookie Social & Final Team Matching',
       },
       {
-        time: '9:00 PM - 10:00 PM',
-        title: 'Cookie Social',
+        time: '10:30 PM',
+        title: 'Team Registration Deadline',
+        notes: 'Online submission.',
       },
       {
-        time: '10:00 PM',
-        title: 'Building Time Begins',
-        notes: 'Start time depends on participants.',
+        time: '10:30 PM onward',
+        title: 'Continued Building',
       },
     ],
   },
